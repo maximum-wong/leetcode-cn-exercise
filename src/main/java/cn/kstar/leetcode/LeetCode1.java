@@ -24,7 +24,7 @@ public class LeetCode1 {
      * 
      * @param array
      * @param target
-     * @return
+     * @return int[]
      */
     public int[] twoSum(int[] array, int target) {
         int[] ret = new int[2];
@@ -50,7 +50,7 @@ public class LeetCode1 {
      * 
      * @param array
      * @param target
-     * @return
+     * @return int[]
      */
     public int[] twoSum2(int[] array, int target) {
         int[] ret = new int[2];
@@ -66,4 +66,33 @@ public class LeetCode1 {
         }
         return ret;
     }
+    
+    /**
+     * 双指针法 一个指向数组首位置的左指针和另一个指向数组末尾置的右指针，
+     *  每次遍历时，如果左右指针所指向的元素值之和大于目标值，右指针向前移动一位；
+     * 反之，则左指针向后移动一位；如果相等，返回做右指针所指向的数组索引值 
+     * 时间复杂度：O(n)；空间复杂度：O(2)
+     * 
+     * @param array
+     * @param target
+     * @return int[]
+     */
+    public int[] twoSum3(int[] array, int target) {
+        int[] ret = new int[2];
+        int leftPointer = 0;
+        int rightPointer = array.length - 1;
+        while (leftPointer + rightPointer < array.length) {
+            if (array[leftPointer] + array[rightPointer] > target) {
+                rightPointer--;
+            } else if (array[leftPointer] + array[rightPointer] < target) {
+                leftPointer++;
+            } else {
+                ret[0] = leftPointer;
+                ret[1] = rightPointer;
+                return ret;
+            }
+        }
+        return ret;
+    }
+    
 }
