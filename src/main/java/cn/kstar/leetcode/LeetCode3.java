@@ -17,7 +17,8 @@ public class LeetCode3 {
     /**
      * Hash存储法
      * 
-     * 使用动态规划, 在一个 Hash 中存储已经出现的字符的上一次出现的索引值, 如果索引值 存在, 则把当前最长子串的左边界更新为该索引值。
+     * 使用动态规划，在一个Hash中存储已经出现的字符的上一次出现的索引值，
+     *  如果索引值存在, 则把当前最长子串的左边界更新为该索引值
      * 
      * @param s
      * @return
@@ -71,11 +72,5 @@ public class LeetCode3 {
         }
         
         return res;
-    }
-    
-    public static void main(String[] args) {
-        LeetCode3 test = new LeetCode3();
-        int res = test.lengthOfLongestSubstring2("abcdefghjklabc");
-        System.out.println(res);
     }
 }
