@@ -19,8 +19,8 @@ package cn.kstar.leetcode;
 public class LeetCode2 {
 
     /**
-         * 链表法
-         * 时间复杂度：o(max(m, n))；空间复杂度：o(max(m, n))
+     * 链表法
+     * 时间复杂度：o(max(m, n))；空间复杂度：o(max(m, n))
      * 
      * @param l1
      * @param l2

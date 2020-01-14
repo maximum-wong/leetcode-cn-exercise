@@ -3,16 +3,25 @@ package cn.kstar.leetcode;
 /**
  * <h3>整数反转</h3>
  *
- * 给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进行反转。
- * Example 1:
- * Input: 123
+ * <p>给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进行反转。</p>
+ * 
+ * <p>
+ * <strong>Example 1: </strong><br/>
+ * Input: 123<br/>
  * Output: 321
- * Example 2:
- * Input: -123
+ * </p>
+ * 
+ * <p>
+ * <strong>Example 2: </strong><br/>
+ * Input: -123<br/>
  * Output: -321
- * Example 3:
- * Input: -123
+ * </p>
+ * 
+ * <p>
+ * <strong>Example 3: </strong><br/>
+ * Input: -123<br/>
  * Output: -321
+ * </p>
  * 
  */
 public class LeetCode7 {
@@ -28,7 +37,7 @@ public class LeetCode7 {
 	 * | -1   | -1%10=-1   | -32*10+(-1)=-321 | 0        |
 	 * |-------------------------------------------------|
 	 * 
-	 * @param x
+	 * @param  x
 	 * @return int
 	 */
 	public int reverse(int x) {
@@ -46,5 +55,29 @@ public class LeetCode7 {
 			}
 		}
 		return (int) res;
+	}
+	
+	/**
+	 * 判断溢出的另一种方法
+	 * 
+	 * @param x
+	 * @return int
+	 */
+	public int reverse2(int x) {
+		int res = 0;
+		int tenthMaxValue = 0X7FFFFFFF / 10;
+		int tenthMinValue = 0X80000000 / 10;
+		while (x != 0) {
+			int pop = x % 10;
+			if ((res > tenthMaxValue) || (res == tenthMaxValue && pop > 7)) {
+				return 0;
+			}
+			if ((res < tenthMinValue) || (res == tenthMinValue && pop < -8)) {
+				return 0;
+			}
+			res = res * 10 + pop;
+			x /= 10;
+		}
+		return res;
 	}
 }

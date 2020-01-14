@@ -7,10 +7,12 @@ import java.util.Map;
  * <h3>Two Sum</h3>
  * <h3>两数之和</h3>
  * 
+ * <p>
  * Given an array of integers, return indices of the two numbers such that they add up to a specific target.
- * You may assume that each input would have exactly one solution, and you may not use the same element twice.
+ * You may assume that each input would have exactly one solution, and you may not use the same element twice.<br/>
  * 给定一个整数数组和一个目标值，找出数组中和为目标值的两个数。
  * 你可以假设每个输入只对应一种答案，且同样的元素不能被重复利用。
+ * </p>
  * 
  * Example:
  * Given nums = [2, 7, 11, 15], target = 9,
@@ -20,8 +22,8 @@ import java.util.Map;
 public class LeetCode1 {
 
     /**
-         * 暴力破解法
-         * 时间复杂度：O(n^2)；空间复杂度：O(1)
+     * 暴力破解法
+     * 时间复杂度：O(n^2)；空间复杂度：O(1)
      * 
      * @param array
      * @param target

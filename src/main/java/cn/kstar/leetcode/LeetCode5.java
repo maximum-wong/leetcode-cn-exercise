@@ -53,6 +53,8 @@ public class LeetCode5 {
     /**
      * Manacher算法
      * 
+     * @param str
+     * @return
      */
     public int manacher(String str) {
         if(str == null || str.length() < 1){
