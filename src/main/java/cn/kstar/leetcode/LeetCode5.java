@@ -2,8 +2,10 @@ package cn.kstar.leetcode;
 
 /**
  * <h3>Longest Palindromic Substring</h3>
+ * <h3>最长回文子串</h3>
  * 
  * Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.
+ * 给定一个字符串 s，找到 s中最长的回文子串。你可以假设 s的最大长度为1000。
  *
  * Example 1:
  * Input: "babad" Output: "bab"
@@ -12,7 +14,6 @@ package cn.kstar.leetcode;
  * Example 2:
  * Input: "cbbd" Output: "bb"
  * 
- * 最长回文子串问题。
  */
 public class LeetCode5 {
     

@@ -2,10 +2,10 @@ package cn.kstar.leetcode;
 
 /**
  * <h3>Median of Two Sorted Arrays</h3>
+ * <h3>寻找两个有序数组的中位数</h3>
  * 
  * There are two sorted arrays nums1 and nums2 of size m and n respectively.
  * Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n))..
- *
  * 给出两个有序的数字列表，长度分别为m,n。找到这两个列表中的中间值，时间复杂度为O(log (m+n))。
  * 
  * 例如:

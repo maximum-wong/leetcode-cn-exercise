@@ -2,11 +2,11 @@ package cn.kstar.leetcode;
 
 /**
  * <h3>Add Two Numbers</h3>
+ * <h3>两数相加</h3>
  * 
  * You are given two non-empty linked lists representing two non-negative integers.
  * The digits are stored in reverse order and each of their nodes contain a single digit.
  * Add the two numbers and return it as a linked list.
- *
  * You may assume the two numbers do not contain any leading zero, except the number 0 itself.
  * 
  * 有两个链表，链表节点分别代表数字的位数，求两个链表的和。
@@ -19,8 +19,8 @@ package cn.kstar.leetcode;
 public class LeetCode2 {
 
     /**
-     * 链表法
-     * 时间复杂度：o(max(m, n))；空间复杂度：o(max(m, n))
+         * 链表法
+         * 时间复杂度：o(max(m, n))；空间复杂度：o(max(m, n))
      * 
      * @param l1
      * @param l2

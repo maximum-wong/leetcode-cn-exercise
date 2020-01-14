@@ -2,10 +2,10 @@ package cn.kstar.leetcode;
 
 /**
  * <h3>Longest Substring Without Repeating Characters</h3>
+ * <h3>无重复字符的最长子串</h3>
  * 
  * Given a string, find the length of the longest substring without repeating characters.
- * 
- * 给一个字符串，求最长的不重复子串。
+ * 给定一个字符串，求最长的不重复子串。
  * 
  * Examples:
  * Given "abcabcbb", the answer is "abc", which the length is 3.
@@ -17,18 +17,18 @@ public class LeetCode3 {
     /**
      * Hash存储法
      * 
-     * 使用动态规划，在一个Hash中存储已经出现的字符的上一次出现的索引值，
-     *  如果索引值存在, 则把当前最长子串的左边界更新为该索引值
+         * 使用动态规划，在一个Hash中存储已经出现的字符的上一次出现的索引值，
+         *  如果索引值存在, 则把当前最长子串的左边界更新为该索引值
      * 
      * @param s
-     * @return
+     * @return int
      */
     public int lengthOfLongestSubstring(String s) {
         int[] allChar = new int[256];
         int res = 0;
         // 字符串的起点下标记
         int left = -1;
-        for (int i = 0; i < s.length(); i++) {
+        for (int i = 0, length = s.length(); i < length; i++) {
             // left 就是遍历之前的没有出现的字符
             left = Math.max(left, allChar[s.charAt(i)]);
             // 更新出现过的字符位置
@@ -40,14 +40,14 @@ public class LeetCode3 {
     }
     
     /**
-     * 滑动窗口法
+         * 滑动窗口法
      * 
-     * 建立一个256位大小的整型数组freg，用来建立字符和其出现位置之间的映射。
-     * 维护一个滑动窗口，窗口内的都是没有重复的字符，去尽可能的扩大窗口的大小，窗口不停的向右滑动。
-     * （1）如果当前遍历到的字符从未出现过，那么直接扩大右边界；
-     * （2）如果当前遍历到的字符出现过，则缩小窗口（左边索引向右移动），然后继续观察当前遍历到的字符；
-     * （3）重复（1）（2），直到左边索引无法再移动；
-     * （4）维护一个结果res，每次用出现过的窗口大小来更新结果res，最后返回res获取结果。
+         * 建立一个256位大小的整型数组freg，用来建立字符和其出现位置之间的映射。
+         * 维护一个滑动窗口，窗口内的都是没有重复的字符，去尽可能的扩大窗口的大小，窗口不停的向右滑动。
+         * （1）如果当前遍历到的字符从未出现过，那么直接扩大右边界；
+         * （2）如果当前遍历到的字符出现过，则缩小窗口（左边索引向右移动），然后继续观察当前遍历到的字符；
+         * （3）重复（1）（2），直到左边索引无法再移动；
+         * （4）维护一个结果res，每次用出现过的窗口大小来更新结果res，最后返回res获取结果。
      * 
      * @param s
      * @return
