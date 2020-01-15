@@ -17,6 +17,7 @@ package cn.kstar.leetcode;
  * Example 2:
  * Input: s = "LEETCODEISHIRING", numRows = 4
  * Output: "LDREOEIIECIHNTSG"
+ * 
  * 解释:
  * L     D     R
  * E   O E   I I
@@ -25,6 +26,14 @@ package cn.kstar.leetcode;
  */
 public class LeetCode6 {
 
+    /**
+          * 逐行拼接法
+     * 
+     * @param input
+     * @param numRows
+     * @return
+     * String
+     */
     public String convert(String input, int numRows) {
         // 获取字符数组
         char[] array = input.toCharArray();
@@ -53,6 +62,92 @@ public class LeetCode6 {
         return charSequences[0].toString();
     }
 
+    /**
+     * 公式法
+     * 时间复杂度：O(n)；空间复杂度：O(n)
+     * 
+     * 第0行中字符索引的位置：n*(2*numRows-2)；
+     * 第i行中字符索引的位置：n*(2*numRows-2)-i和(n+1)*(2*numRows-2)-i；
+     * 第numRows-1中字符索引的位置：n*(2*numRows-2)+numRows-1
+     * 
+     * @param input
+     * @param numRows
+     * @return String
+     */
+    public String convert2(String input, int numRows) {
+        // 空字符及numRows为1的直接返回输入的字符
+        if (input == null || input.length() == 0 || numRows == 1 || numRows>input.length())
+            return input;
+
+        char[] array = input.toCharArray();
+        int length = array.length;
+        // 每列之间的差值
+        int step = 2 * numRows - 2;
+        CharSequence cs = new CharSequence(length);
+
+        for (int i = 0; i < numRows; i++) {
+            for (int j = 0; j + i < length; j += step) { // 处理每行垂直方向的字符
+                cs.append(array[j + i]);
+                if (i > 0 && i < numRows - 1 && j + step - i < length) {
+                    cs.append(array[j + step - i]); // 处理斜向方的元素
+                }
+            }
+        }
+
+        return cs.toString();
+    }
+    
+    /**
+     * 找规律法:
+     * 
+     * 找规律的题目,第一行、最后一行做特殊处理,两个字母间隔恰好为: step = 2 * numRows - 2;
+     * 中间的行规律:如果是在Z字的上半部分,index = current + step;
+     * 如果是在Z字的下半部分,index = current + step - 2 * row;
+     *  
+     * @param input
+     * @param numRows
+     * @return
+     * String
+     */
+    public String convert3(String input, int numRows) {
+        if (input == null || input.length() == 0 || numRows == 1 || numRows>input.length())
+            return input;
+        
+        char[] array = input.toCharArray();
+        int length = array.length;
+        // 每列之间的差值
+        int step = 2 * numRows - 2;
+        CharSequence cs = new CharSequence(length);
+        
+        // 处理第一行
+        for (int i = 0; i < length; i+=step) {
+            cs.append(array[i]);
+        }
+        // 处理中间行
+        int row=1;
+        while(row<numRows-1) {
+            int current = row;
+            while (current<length) {
+                // 处理上半部分
+                cs.append(array[current]);
+                // 处理下半部分
+                int cNext = current+step-2*row;
+                if (cNext<length) {
+                    cs.append(array[cNext]);
+                }
+                current+=step;
+            }
+            row++;
+        }
+        
+        // 处理最后一行
+        while (row<length) {
+            cs.append(array[row]);
+            row+=step;
+        }
+        return cs.toString();
+    }
+    
     public class CharSequence {
 
         public CharSequence(int capacity) {
