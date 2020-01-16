@@ -45,7 +45,7 @@ public class LeetCode2 {
             }
             // 记录余数
             int item = remainder + a + b;
-            remainder = (item >= 10) ? 1 : 0;
+            remainder = item / 10;
             ListNode current = new ListNode(item % 10);
             if (tail == null) {
                 tail = current;
