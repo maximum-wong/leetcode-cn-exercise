@@ -22,8 +22,8 @@ public class LeetCode2 {
      * 链表法
      * 时间复杂度：o(max(m, n))；空间复杂度：o(max(m, n))
      * 
-     * @param l1
-     * @param l2
+     * @param  l1
+     * @param  l2
      * @return ListNode
      */
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
@@ -63,8 +63,8 @@ public class LeetCode2 {
      * @desc 两个节点相加，要进行两步，首先是节点相加，然后是相加的结果和余数相加
      * @desc 时间复杂度：o(max(m, n))；空间复杂度：o(max(m,n))
      * 
-     * @param l1
-     * @param l2
+     * @param  l1
+     * @param  l2
      * @return ListNode
      */
     public ListNode addTwoNumbers2(ListNode l1, ListNode l2) {

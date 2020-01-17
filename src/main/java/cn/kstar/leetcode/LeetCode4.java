@@ -1,24 +1,24 @@
 package cn.kstar.leetcode;
 
 /**
- * <h3>Median of Two Sorted Arrays</h3>
- * <h3>寻找两个有序数组的中位数</h3>
+ * <h3>Median of Two Sorted Arrays
+ * <br/>寻找两个有序数组的中位数</h3>
  * 
- * There are two sorted arrays nums1 and nums2 of size m and n respectively.
- * Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n))..
- * 给出两个有序的数字列表，长度分别为m,n。找到这两个列表中的中间值，时间复杂度为O(log (m+n))。
+ * <p>There are two sorted arrays nums1 and nums2 of size m and n respectively.
+ * <br/>Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n))..
+ * <br/>给出两个有序的数字列表，长度分别为m,n。找到这两个列表中的中间值，时间复杂度为O(log (m+n))。</p>
  * 
- * 例如:
- * 
- * #例子一：总长度为奇数
+ * <pre>
+ * Example 1:总长度为奇数
  * nums1 = [1, 3]
  * nums2 = [2]
  * The median is 2.0
  * 
- * #例子二：总长度为偶数
+ * Example 2:总长度为偶数
  * nums1 = [1, 2]
  * nums2 = [3, 4]
  * The median is (2 + 3)/2 = 2.5
+ * </pre>
  */
 public class LeetCode4 {
 

@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * <h3>Two Sum</h3>
- * <h3>两数之和</h3>
+ * <h3>Two Sum
+ * <br/>两数之和</h3>
  * 
  * <p>
  * Given an array of integers, return indices of the two numbers such that they add up to a specific target.
@@ -14,10 +14,11 @@ import java.util.Map;
  * 你可以假设每个输入只对应一种答案，且同样的元素不能被重复利用。
  * </p>
  * 
- * Example:
+ * <pre><b>Example:</b>
  * Given nums = [2, 7, 11, 15], target = 9,
  * Because nums[0] + nums[1] = 2 + 7 = 9,
  * return [0, 1].
+ * </pre>
  */
 public class LeetCode1 {
 
@@ -25,8 +26,8 @@ public class LeetCode1 {
      * 暴力破解法
      * 时间复杂度：O(n^2)；空间复杂度：O(1)
      * 
-     * @param array
-     * @param target
+     * @param  array
+     * @param  target
      * @return int[]
      */
     public int[] twoSum(int[] array, int target) {
