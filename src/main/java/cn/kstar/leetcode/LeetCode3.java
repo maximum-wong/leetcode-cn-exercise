@@ -89,7 +89,7 @@ public class LeetCode3 {
                 slideWindow[s.charAt(right)]++;
                 right++;
                 res = max(res, right - left);
-            } else { // right已经到头 || freq[s.charAt(right+1)] == 1
+            } else { // right已经到头 || slideWindow[s.charAt(right)] == 1
                 slideWindow[s.charAt(left)]--;
                 left++;
             }

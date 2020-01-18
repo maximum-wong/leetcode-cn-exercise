@@ -19,6 +19,58 @@ package cn.kstar.leetcode;
  */
 public class LeetCode5 {
     
+	/**
+	 * <h6>中心扩展法</h6>
+	 * 
+	 * <p>时间复杂度：O(n^2)；空间复杂度：O(1)</p>
+	 * 
+	 * <p>因为回文串是对称的，所以可以每次循环选择一个中心，进行左右扩展，判断左右字符是否相等即可。
+	 * <br/>由于存在奇数个数的字符串和偶数个数的字符串，所以需要从一个字符开始扩展，或从两个字符之间开始扩展，
+	 * <br/>所以总共有 n + n - 1 个中心。</p>
+	 * 
+	 * @param  s
+	 * @return String
+	 */
+	public String longestPalindromicSubstring(String s) {
+		if (s == null || s.length() <= 1) {
+			return s;
+		}
+
+		// 起始位置
+		int start = 0;
+		// 结束位置
+		int end = 0;
+		for (int i = 0, length = s.length(); i < length; i++) {
+			// 计算偶数长度字符串的结果
+			int result1 = expandAroundCenter(s, i, i+1);
+			// 计算奇数长度字符串的结果
+			int result2 = expandAroundCenter(s, i, i);
+			// 计算比较长的结果的起始位置和终止位置
+			int result = max(result1, result2);
+			if (result > end - start) {
+				start = i - (result - 1) / 2;
+				end = i + result / 2;
+			}
+		}
+
+		return s.substring(start, end + 1);
+	}
+
+	private int expandAroundCenter(String input, int left, int right) {
+		int leftIndex = left;
+		int rightIndex = right;
+		int length = input.length();
+		while ((leftIndex >= 0) && (rightIndex < length) && (input.charAt(leftIndex) == input.charAt(rightIndex))) {
+			leftIndex--;
+			rightIndex++;
+		}
+		return rightIndex - leftIndex - 1;
+	}
+
+	private int max(int x, int y) {
+		return (x > y) ? x : y;
+	}
+
     /**
      * <h6>dp解法</h6>
      * 
@@ -34,7 +86,7 @@ public class LeetCode5 {
      * @param  str
      * @return String
      */
-    public String longestPalindromicSubstring(String s) {
+    public String longestPalindromicSubstring2(String s) {
         if ((s != null) && (s.length() > 1)) {
             int length = s.length();
             boolean dp[][] = new boolean[length][length];
@@ -69,11 +121,11 @@ public class LeetCode5 {
         }
         char[] charArr = manacherString(str);
         int[] radius = new int[charArr.length];
-        int R = -1;
+        int r = -1;
         int c = -1;
         int max = 0X80000000;
         for (int i = 0; i < radius.length; i++) {
-            radius[i] = R > i ? Math.min(radius[2 * c - i], R - i + 1) : 1;
+            radius[i] = r > i ? Math.min(radius[2 * c - i], r - i + 1) : 1;
             while (i + radius[i] < charArr.length && i - radius[i] > -1) {
                 if (charArr[i - radius[i]] == charArr[i + radius[i]]) {
                     radius[i]++;
@@ -81,11 +133,11 @@ public class LeetCode5 {
                     break;
                 }
             }
-            if (i + radius[i] > R) {
-                R = i + radius[i] - 1;
+            if (i + radius[i] > r) {
+                r = i + radius[i] - 1;
                 c = i;
             }
-            max = Math.max(max, radius[i]);
+            max = max(max, radius[i]);
         }
         return max - 1;
     }

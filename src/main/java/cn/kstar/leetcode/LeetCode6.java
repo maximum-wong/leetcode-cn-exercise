@@ -27,13 +27,13 @@ package cn.kstar.leetcode;
 public class LeetCode6 {
 
     /**
-          * 逐行拼接法
-          *  时间复杂度：O(n)；空间复杂度：O(2*numRows*n) 
+     * <h6>逐行拼接法</h6>
      * 
-     * @param input
-     * @param numRows
-     * @return
-     * String
+     * <p>时间复杂度：O(n)；空间复杂度：O(2*numRows*n)</p>
+     * 
+     * @param  input
+     * @param  numRows
+     * @return String
      */
 	public String convert(String input, int numRows) {
 		// 空字符、numRows为1、numRows长度大于字符串长度的直接返回输入的字符
@@ -67,19 +67,21 @@ public class LeetCode6 {
 	}
 
     /**
-         * 公式法
-         * 时间复杂度：O(n)；空间复杂度：O(n)
+     * <h6>公式法</h6>
      * 
+     * <p>时间复杂度：O(n)；空间复杂度：O(n)</p>
+     * 
+     * <pre>
      * 0    6
      * 1  5 7
      * 2 4  8
      * 3    9
+     * </pre>
+     * <p>第 i 行，第 n 列中垂直方向字符索引的位置：n * (2 * numRows - 2) + i, (i>0 && i<numRows)
+     * <br/>第 i 行，第 n 列中斜方向的字符索引的位置：(n + 1) * (2 * numRows - 2) - i, (i>0 && i<numRows - 1)</p>
      * 
-         * 第 i 行，第 n 列中垂直方向字符索引的位置：n * (2 * numRows - 2) + i, (i>0 && i<numRows)
-         * 第 i 行，第 n 列中斜方向的字符索引的位置：(n + 1) * (2 * numRows - 2) - i, (i>0 && i<numRows - 1)
-     * 
-     * @param input
-     * @param numRows
+     * @param  input
+     * @param  numRows
      * @return String
      */
 	public String convert2(String input, int numRows) {
@@ -105,21 +107,22 @@ public class LeetCode6 {
 	}
     
     /**
-         * 找规律法:
+     * <h6>找规律法；</h6>
      * 
+     * <pre>
      * 0    6
      * 1  5 7
      * 2 4  8
      * 3    9
+     * </pre>
      * 
-         * 第一行、最后一行做特殊处理,两个字母间隔恰好为：step = 2 * numRows - 2；
-         * 中间的行规律：如果是在Z字的上半部分，index = current + step;
-         * 如果是在Z字的下半部分，index = current + step - 2 * row;
+     * <p>第一行、最后一行做特殊处理,两个字母间隔恰好为：step = 2 * numRows - 2；
+     * <br/>中间的行规律：如果是在Z字的上半部分，index = current + step;
+     * <br/>如果是在Z字的下半部分，index = current + step - 2 * row;</p>
      *  
      * @param input
      * @param numRows
-     * @return
-     * String
+     * @return String
      */
 	public String convert3(String input, int numRows) {
 		// 空字符、numRows为1、numRows长度大于字符串长度的直接返回输入的字符
@@ -160,6 +163,9 @@ public class LeetCode6 {
 		return cs.toString();
 	}
     
+	/**
+	 * <h3>自定义字符串缓冲池类</h3>
+	 */
     public class CharSequence {
 
         public CharSequence(int capacity) {
