@@ -6,8 +6,8 @@ package cn.kstar.leetcode;
  * <p>编写一个函数来查找字符串数组中的最长公共前缀。如果不存在公共前缀，返回空字符串 ""。</p>
  * 
  * <pre>
- * 输入: ["flower","flow","flight"]；输出: "fl"
- * 输入: ["dog","racecar","car"]；输出: ""；解释: 输入不存在公共前缀。
+ * Input: ["flower","flow","flight"]；Output: "fl"
+ * Input: ["dog","racecar","car"]；Output: ""；Explanation: 输入不存在公共前缀。
  * </pre>
  */
 public class LeetCode14 {
