@@ -71,6 +71,10 @@ public class LeetCode5 {
 		return (x > y) ? x : y;
 	}
 
+	private int min(int x, int y) {
+		return (x < y) ? x : y;
+	}
+	
     /**
      * <h6>dp解法</h6>
      * 
@@ -120,12 +124,13 @@ public class LeetCode5 {
             return 0;
         }
         char[] charArr = manacherString(str);
-        int[] radius = new int[charArr.length];
+        int length = charArr.length;
+        int[] radius = new int[length];
         int r = -1;
         int c = -1;
         int max = 0X80000000;
-        for (int i = 0; i < radius.length; i++) {
-            radius[i] = r > i ? Math.min(radius[2 * c - i], r - i + 1) : 1;
+        for (int i = 0; i < length; i++) {
+            radius[i] = r > i ? min(radius[2 * c - i], r - i + 1) : 1;
             while (i + radius[i] < charArr.length && i - radius[i] > -1) {
                 if (charArr[i - radius[i]] == charArr[i + radius[i]]) {
                     radius[i]++;
