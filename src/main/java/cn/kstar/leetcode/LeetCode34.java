@@ -16,10 +16,6 @@ public class LeetCode34 {
 	/**
 	 * <h6>二分查找法</h6>
 	 * 
-	 * <p>使用二分查找法，以searchBegin为例，当nums[mid]>target时，向左查找，当nums[mid]=targe时，向左查找。
-	 * <br/>这样所有情况下，范围都会缩小，直到l==r为止，这时如果该位置里的数==target，则返回该位置，否则返回-1。
-	 * <br/>searchEnd同理。</p>
-	 * 
 	 * @param  array
 	 * @param  target
 	 * @return int[]
@@ -29,41 +25,46 @@ public class LeetCode34 {
 		if (array == null || array.length == 0) {
 			return ret;
 		}
+		// 左边界
 		int left = 0;
+		// 右边界
 		int right = array.length;
+		// 中间位置
 		int mid = (left + right) / 2;
+		// 任意目标元素的位置
 		int position = -1;
 		while (left < right) {
-			if (array[mid] == target) {
-				position = mid;
-				break;
-			}
 			if (array[mid] > target) {
 				if (right == mid) {
 					break;
 				}
 				right = mid;
 				mid = (left + right) / 2;
-			} else {
+			} else if (array[mid] < target) {
 				if (left == mid) {
 					break;
 				}
 				left = mid;
 				mid = (left + right) / 2;
+			} else {
+				position = mid;
+				break;
 			}
 		}
 		if (position == -1) {
 			return ret;
 		} else {
-			int a = position;
-			int b = position;
-			while (a > 0 && array[a - 1] == target) {
-				a--;
+			int firstPosition = position;
+			int lastPosition = position;
+			// 寻找第一个位置的目标元素
+			while ((firstPosition > 0) && (array[firstPosition - 1] == target)) {
+				firstPosition--;
 			}
-			while (b < array.length - 1 && array[b + 1] == target) {
-				b++;
+			// 寻找最后一个位置的目标元素
+			while ((lastPosition < array.length - 1) && (array[lastPosition + 1] == target)) {
+				lastPosition++;
 			}
-			return new int[] { a, b };
+			return new int[] { firstPosition, lastPosition };
 		}
 	}
 }
