@@ -19,8 +19,8 @@ public class LeetCode35 {
 	/**
 	 * <h6>遍历搜索法</h6>
 	 * 
-	 * @param array
-	 * @param target
+	 * @param  array
+	 * @param  target
 	 * @return int
 	 */
 	public int searchInsertPostion1(int[] array, int target) {
@@ -37,7 +37,7 @@ public class LeetCode35 {
 	}
 	
 	/**
-	 * <h6>二分法法</h6>
+	 * <h6>二分查找法</h6>
 	 * 
 	 * @param  array
 	 * @param  target
