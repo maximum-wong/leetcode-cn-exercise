@@ -2,6 +2,7 @@ package cn.kstar.leetcode;
 
 /**
  * <h6>求x的n次方</h6>
+ * 
  * <p>实现 pow(x, n) ，即计算 x 的 n 次幂函数。
  * <br/>-100.0 < x < 100.0, n 是 32 位有符号整数，其数值范围是 [−2^31, 231^−1] 。</p>
  * <pre><b>Examples:</b>
