@@ -21,7 +21,7 @@ public class LeetCode67 {
 		int i = a.length() - 1;
 		int j = b.length() - 1;
 		int index = len - 1;
-		while (i >= 0 || j >= 0) {
+		while (index >= 0) {
 			int sum = carry;
 			if (i >= 0) {
 				sum += (a.charAt(i--) - '0');
