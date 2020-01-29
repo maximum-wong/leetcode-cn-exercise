@@ -48,8 +48,8 @@ public class LeetCode1 {
      * <p>时间复杂度：O(n)；空间复杂度：O(n)</p>
      * 
      * <p>每次遍历时，在哈希表中保存数组的值（key）和索引（value），
-     * 算出目标值与当前数组值的差值，然后在哈希表中查找该差值，
-     * 若查找到，返回当前数组的索引和在哈希表中保存的该差值的所对应的索引值</p>
+     * <br/>算出目标值与当前数组值的差值，然后在哈希表中查找该差值，
+     * <br/>若查找到，返回当前数组的索引和在哈希表中保存的该差值的所对应的索引值</p>
      * 
      * @param  array
      * @param  target
@@ -92,36 +92,6 @@ public class LeetCode1 {
             if ((value != null) && (value != i)) {
                 ret[0] = i;
                 ret[1] = value;
-                return ret;
-            }
-        }
-        return ret;
-    }
-    
-    /**
-         * 双指针法（有序数组） 
-         * 一个指向数组首位置的左指针和另一个指向数组末尾置的右指针，
-         *  每次遍历时，如果左右指针所指向的元素值之和大于目标值，右指针向前移动一位；
-         * 反之，则左指针向后移动一位；如果相等，返回做右指针所指向的数组索引值 
-         * 时间复杂度：O(n)；空间复杂度：O(1)
-     * 
-     * @param array
-     * @param target
-     * @return int[]
-     */
-    public int[] twoSum4(int[] array, int target) {
-        int[] ret = new int[2];
-        int leftPointer = 0;
-        int rightPointer = array.length - 1;
-        int length = array.length;
-        while (leftPointer + rightPointer < length) {
-            if (array[leftPointer] + array[rightPointer] > target) {
-                rightPointer--;
-            } else if (array[leftPointer] + array[rightPointer] < target) {
-                leftPointer++;
-            } else {
-                ret[0] = leftPointer;
-                ret[1] = rightPointer;
                 return ret;
             }
         }
