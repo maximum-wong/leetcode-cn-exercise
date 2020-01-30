@@ -18,6 +18,12 @@ import java.util.List;
  */
 public class LeetCode56 {
 
+	/**
+	 * <p>解题思路：在排好序的情况下，当第一个区间的end>=第二个区间的start时，两个区间可以合并。</p>
+	 * 
+	 * @param intervals
+	 * @return List<Interval>
+	 */
 	public List<Interval> merge(List<Interval> intervals) {
 		if ((intervals == null) || (intervals.isEmpty())) {
 			return intervals;
