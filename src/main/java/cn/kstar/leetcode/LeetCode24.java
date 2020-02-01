@@ -1,5 +1,7 @@
 package cn.kstar.leetcode;
 
+import cn.kstar.leetcode.data_structure.ListNode;
+
 /**
  * <h6>两两交换链表中的节点</h6>
  *

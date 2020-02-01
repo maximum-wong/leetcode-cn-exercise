@@ -1,5 +1,7 @@
 package cn.kstar.leetcode;
 
+import cn.kstar.leetcode.data_structure.ListNode;
+
 /**
  * <h6>合并两个有序链表</h6>
  *
