@@ -18,11 +18,11 @@ public class LeetCode15 {
 	 * <h6>双指针法</h6>
 	 * 
 	 * <p>使用双指针法，将三数之和变为两数之和。
-	 * <br/>先将数组进行排序，然后固定数组中一个数字，将剩余两个数字用双指针法进行查找，直到只找到结果为止。
+	 * <br/>先将数组进行排序，然后固定数组中一个数字，将剩余两个数字用双指针法进行查找，直到只找到所有结果为止。
 	 * <br/>然后再固定下一个数字，继续进行以上操作，直到固定到最后一个数字为止。
 	 * <br/>如果相邻元素相同，则有可能会有重复的结果，需要进行跳过处理。</p>
-	 * @param numbers
-	 * @return
+	 * @param  numbers
+	 * @return List<List<Integer>>
 	 */
 	public List<List<Integer>> threeSum(int[] numbers) {
 		List<List<Integer>> result = new ArrayList<>();
