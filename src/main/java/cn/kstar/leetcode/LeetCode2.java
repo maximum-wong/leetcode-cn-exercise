@@ -10,7 +10,6 @@ import cn.kstar.leetcode.data_structure.ListNode;
  * <br/>The digits are stored in reverse order and each of their nodes contain a single digit.
  * <br/>Add the two numbers and return it as a linked list.
  * <br/>You may assume the two numbers do not contain any leading zero, except the number 0 itself.
- * 
  * <br/>有两个链表，链表节点分别代表数字的位数，求两个链表的和。</p>
  * 
  * <pre><b>Example: </b>

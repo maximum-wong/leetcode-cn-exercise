@@ -17,9 +17,9 @@ public class LeetCode242 {
 	/**
 	 * <h6>查表法</h6>
 	 * 
-	 * @param s
-	 * @param t
-	 * @return
+	 * @param  s
+	 * @param  t
+	 * @return boolean
 	 */
 	public boolean isAnagram(String s, String t) {
 		// 两个字符长度不相等，直接返回false
