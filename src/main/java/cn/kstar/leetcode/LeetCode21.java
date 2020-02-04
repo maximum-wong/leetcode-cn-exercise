@@ -12,7 +12,14 @@ import cn.kstar.leetcode.data_structure.ListNode;
  */
 public class LeetCode21 {
 
-	public ListNode mergeTwolIsts(ListNode l1, ListNode l2) {
+	/**
+	 * <h6>循环法</h6>
+	 *
+	 * @param  l1
+	 * @param  l2
+	 * @return ListNode
+	 */
+	public ListNode mergeTwolists(ListNode l1, ListNode l2) {
 		// 创建head节点和current指针
 		ListNode head = new ListNode(-1);
 		ListNode current = head;
@@ -33,5 +40,40 @@ public class LeetCode21 {
 		current.next = (l1 != null) ? l1 : l2;
 
 		return head.next;
+	}
+	
+	/**
+	 * <h6>递归法</h6>
+	 *
+	 * @param  l1
+	 * @param  l2
+	 * @return ListNode
+	 */
+	public ListNode mergeTwolists2(ListNode l1, ListNode l2) {
+		if (l1 == null && l2 == null) {
+			return null;
+		}
+		
+		if (l1 == null) {
+			return l2;
+		}
+		
+		if (l2 == null) {
+			return l1;
+		}
+		
+		// 链表标志指针
+		ListNode result;
+		// 合并较小元素，移动标志指针，递归进行
+		if (l1.val <= l2.val) {
+			result = l1;
+			l1 = l1.next;
+			result.next = mergeTwolists2(l1, l2);
+		} else {
+			result = l2;
+			l2 = l2.next;
+			result.next = mergeTwolists2(l1, l2);
+		}
+		return result;
 	}
 }
