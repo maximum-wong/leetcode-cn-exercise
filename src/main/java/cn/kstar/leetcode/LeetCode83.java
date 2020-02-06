@@ -14,6 +14,12 @@ import cn.kstar.leetcode.data_structure.ListNode;
  */
 public class LeetCode83 {
 
+	/**
+	 * <h6>直接遍历进行操作<h6>
+	 * 
+	 * @param  head
+	 * @return ListNode
+	 */
 	public ListNode deleteDuplicates(ListNode head) {
 		ListNode list = head;
 		while (list!=null) {
