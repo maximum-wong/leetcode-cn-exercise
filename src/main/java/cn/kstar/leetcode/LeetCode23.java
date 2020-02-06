@@ -3,9 +3,9 @@ package cn.kstar.leetcode;
 import cn.kstar.leetcode.data_structure.ListNode;
 
 /**
- * <h6>两两交换链表中的节点</h6>
+ * <h6>合并k个有序链表</h6>
  *
- * <p>合并 k 个排序链表，返回合并后的排序链表。请分析和描述算法的复杂度。</p>
+ * <p>合并 k个排序链表，返回合并后的排序链表。请分析和描述算法的复杂度。</p>
  * <pre><b>Examples: </b>
  * Input: [ 1->4->5, 1->3->4, 2->6]; Output: 1->1->2->3->4->4->5->6
  * </pre>

@@ -34,7 +34,7 @@ public class LeetCode26 {
 		int index = 0;
 		for (int i = 0, length = array.length; i < length; i++) {
 			// 如果右指针与左指针所指的元素不相同
-			if (array[i] != array[index]) {
+			if (array[index] != array[i]) {
 				index++;
 				array[index] = array[i];
 			}
