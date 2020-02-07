@@ -44,9 +44,9 @@ public class LeetCode61 {
 	 * 6->1->2->5->NULL
 	 * </pre>
 	 * 
-	 * @param head
-	 * @param k
-	 * @return
+	 * @param  head
+	 * @param  k
+	 * @return ListNode
 	 */
 	public ListNode rotateRight(ListNode head, int k) {
 		if (head==null || head.next==null) {
