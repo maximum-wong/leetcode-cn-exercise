@@ -12,7 +12,7 @@ import cn.kstar.leetcode.data_structure.ListNode;
  * <br/>You may assume the two numbers do not contain any leading zero, except the number 0 itself.
  * <br/>有两个链表，链表节点分别代表数字的位数，求两个链表的和。</p>
  * 
- * <pre><b>Example: </b>
+ * <pre><b>Examples: </b>
  * Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
  * Output: 7 -> 0 -> 8
  * Explanation: 342 + 465 = 807.</pre>
