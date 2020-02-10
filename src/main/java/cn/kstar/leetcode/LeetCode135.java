@@ -16,50 +16,50 @@ package cn.kstar.leetcode;
  */
 public class LeetCode135 {
 
-	/**
-	 * <p><b>解题思路：</b>
-	 * <ol><li>首先保证每个孩子都至少能分配到一个糖果</li>
-	 * <li>从左到右遍历，考虑到右边的孩子比左边的评分更高，此时右边的糖果数比左边的多一个</li>
-	 * <li>从右到左遍历，考虑到左边的孩子比右边的评分更高，但又要考虑到不破坏第二条已满足的规则，
-	 * <br/>此时比较右边的糖果数加一的值和左边的糖果数，取其较大值。</li>
-	 * </ol></p>
-	 * 
-	 * @param  ratings
-	 * @return int
-	 */
-	public int candy(int[] ratings) {
-		int ret = 0;
-		if (ratings == null || ratings.length == 0) {
-			return ret;
-		}
+    /**
+     * <p><b>解题思路：</b>
+     * <ol><li>首先保证每个孩子都至少能分配到一个糖果</li>
+     * <li>从左到右遍历，考虑到右边的孩子比左边的评分更高，此时右边的糖果数比左边的多一个</li>
+     * <li>从右到左遍历，考虑到左边的孩子比右边的评分更高，但又要考虑到不破坏第二条已满足的规则，
+     * <br/>此时比较右边的糖果数加一的值和左边的糖果数，取其较大值。</li>
+     * </ol></p>
+     * 
+     * @param  ratings
+     * @return int
+     */
+    public int candy(int[] ratings) {
+        int ret = 0;
+        if (ratings == null || ratings.length == 0) {
+            return ret;
+        }
 
-		int[] resCandy = new int[ratings.length];
-		// 给每个孩子分配一个糖果
-		for (int i = 0, length = ratings.length; i < length; i++) {
-			resCandy[i] = 1;
-		}
+        int[] resCandy = new int[ratings.length];
+        // 给每个孩子分配一个糖果
+        for (int i = 0, length = ratings.length; i < length; i++) {
+            resCandy[i] = 1;
+        }
 
-		// 给比左边评分更高的孩子分配糖果
-		for (int i = 0, length = ratings.length - 1; i < length; i++) {
-			if (ratings[i + 1] > ratings[i]) {
-				resCandy[i + 1] = resCandy[i] + 1;
-			}
-		}
+        // 给比左边评分更高的孩子分配糖果
+        for (int i = 0, length = ratings.length - 1; i < length; i++) {
+            if (ratings[i + 1] > ratings[i]) {
+                resCandy[i + 1] = resCandy[i] + 1;
+            }
+        }
 
-		// 给比右边评分更高的孩子分配糖果
-		for (int i = ratings.length - 1; i >= 1; i--) {
-			if (ratings[i - 1] > ratings[i]) {
-				// 不能破坏当前元素比左边孩子高的规则
-				int tmp = resCandy[i] + 1;
-				resCandy[i - 1] = (tmp > resCandy[i - 1]) ? tmp : resCandy[i - 1];
-			}
-		}
+        // 给比右边评分更高的孩子分配糖果
+        for (int i = ratings.length - 1; i >= 1; i--) {
+            if (ratings[i - 1] > ratings[i]) {
+                // 不能破坏当前元素比左边孩子高的规则
+                int tmp = resCandy[i] + 1;
+                resCandy[i - 1] = (tmp > resCandy[i - 1]) ? tmp : resCandy[i - 1];
+            }
+        }
 
-		// 将分配结果求和累加
-		for (int i = 0, length = ratings.length; i < length; i++) {
-			ret += resCandy[i];
-		}
+        // 将分配结果求和累加
+        for (int i = 0, length = ratings.length; i < length; i++) {
+            ret += resCandy[i];
+        }
 
-		return ret;
-	}
+        return ret;
+    }
 }

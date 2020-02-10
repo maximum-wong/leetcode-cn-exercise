@@ -17,26 +17,26 @@ package cn.kstar.leetcode;
 public class LeetCode70 {
 
 	/**
-	 * <h6>状态规划法</h6>
-	 * 
-	 * <p>使用DP法，状态方程为：dp[i]=dp[i-1]+dp[i-2]。
-	 * </br/>i-1的时候跳一步可以到达i；i-2的时候跳一步是i-1，这个变成dp[i-1]的子问题了,直接跳两步可以到达i</p>
-	 * @param  n
-	 * @return int
-	 */
-	public int climbStairs(int n) {
-		if (n <= 0) {
-			return 0;
-		}
-		if (n == 1) {
-			return 1;
-		}
-		int[] dp = new int[n + 1];
-		dp[0] = 1;
-		dp[1] = 1;
-		for (int i = 2; i <= n; i++) {
-			dp[i] = dp[i - 1] + dp[i - 2];
-		}
-		return dp[n];
-	}
+    * <h6>状态规划法</h6>
+    * 
+    * <p>使用DP法，状态方程为：dp[i]=dp[i-1]+dp[i-2]。
+    * </br/>i-1的时候跳一步可以到达i；i-2的时候跳一步是i-1，这个变成dp[i-1]的子问题了,直接跳两步可以到达i</p>
+    * @param  n
+    * @return int
+    */
+    public int climbStairs(int n) {
+        if (n <= 0) {
+            return 0;
+        }
+        if (n == 1) {
+            return 1;
+        }
+        int[] dp = new int[n + 1];
+        dp[0] = 1;
+        dp[1] = 1;
+        for (int i = 2; i <= n; i++) {
+            dp[i] = dp[i - 1] + dp[i - 2];
+        }
+        return dp[n];
+    }
 }

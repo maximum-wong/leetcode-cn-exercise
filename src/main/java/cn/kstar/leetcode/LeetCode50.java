@@ -16,33 +16,33 @@ package cn.kstar.leetcode;
  */
 public class LeetCode50 {
 
-	/**
-	 * <h6>二分法（递归方式实现）</h6>
-	 * 
-	 * <p>当n>=0，ret=x^n；当n<0，ret=1/(x^n)。
-	 * <br/>然后使用二分法奇数偶数求解x^n，奇数，ret=half*half*x；偶数，ret=half*half</p>
-	 * 
-	 * @param  x
-	 * @param  n
-	 * @return double
-	 */
-	public double recursivePow(double x, int n) {
-		if (n >= 0) {
-			return powHelper(x, n);
-		} else {
-			return 1 / powHelper(x, n);
-		}
-	}
+    /**
+     * <h6>二分法（递归方式实现）</h6>
+     * 
+     * <p>当n>=0，ret=x^n；当n<0，ret=1/(x^n)。
+     * <br/>然后使用二分法奇数偶数求解x^n，奇数，ret=half*half*x；偶数，ret=half*half</p>
+     * 
+     * @param  x
+     * @param  n
+     * @return double
+     */
+    public double recursivePow(double x, int n) {
+        if (n >= 0) {
+            return powHelper(x, n);
+        } else {
+            return 1 / powHelper(x, n);
+        }
+    }
 
-	private double powHelper(double x, int n) {
-		if (n == 0) {
-			return 1;
-		}
-		double half = powHelper(x, n / 2);
-		if ((n & 1) == 0) {
-			return half * half;
-		} else {
-			return half * half * x;
-		}
-	}
+    private double powHelper(double x, int n) {
+        if (n == 0) {
+            return 1;
+        }
+        double half = powHelper(x, n / 2);
+        if ((n & 1) == 0) {
+            return half * half;
+        } else {
+            return half * half * x;
+        }
+    }
 }

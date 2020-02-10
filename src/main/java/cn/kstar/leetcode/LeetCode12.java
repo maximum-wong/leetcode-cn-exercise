@@ -33,23 +33,23 @@ package cn.kstar.leetcode;
  */
 public class LeetCode12 {
 
-	public String arabicNumeralsConverToRomanNumeral(int number) {
-		if ((number < 1) && (number > 3999)) {
-			return "";
-		}
-		// 建立映射关系
-		int[] numbers = { 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 };
-		String[] flags = { "M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I" };
-		StringBuilder ret = new StringBuilder(26);
-		for (int i = 0; (i < 13 && number > 0); i++) {
-			if (number < numbers[i]) { // 当前数小于标记数
-				continue;
-			}
-			while (number >= numbers[i]) { // 当前数大于标记数
-				number -= numbers[i];
-				ret.append(flags[i]);
-			}
-		}
-		return ret.toString();
-	}
+    public String arabicNumeralsConverToRomanNumeral(int number) {
+        if ((number < 1) && (number > 3999)) {
+            return "";
+        }
+        // 建立映射关系
+        int[] numbers = { 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 };
+        String[] flags = { "M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I" };
+        StringBuilder ret = new StringBuilder(26);
+        for (int i = 0; (i < 13 && number > 0); i++) {
+            if (number < numbers[i]) { // 当前数小于标记数
+                continue;
+            }
+            while (number >= numbers[i]) { // 当前数大于标记数
+                number -= numbers[i];
+                ret.append(flags[i]);
+            }
+        }
+        return ret.toString();
+    }
 }

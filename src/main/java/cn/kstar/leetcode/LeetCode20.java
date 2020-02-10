@@ -18,43 +18,43 @@ package cn.kstar.leetcode;
  */
 public class LeetCode20 {
 
-	public boolean isValid(String s) {
-		int length = s.length();
-		// 存放左括号的栈
-		char[] stack = new char[length];
-		// 栈顶指针
-		int top = -1;
-		for (int i = 0; i < length; i++) {
-			char ch = s.charAt(i);
-			// 如果是左括号，进栈操作
-			if (ch == '[' || ch == '(' || ch == '{') {
-				stack[++top] = ch;
-			}
-			// 如果是右括号，判断当前括号是否与栈顶的括号配对，若符合，出栈操作
-			if (ch == ']' || ch == ')' || ch == '}') {
-				if (top == -1 || stack[top--] != getTheLeft(ch)) {
-					return false;
-				}
-			}
-		}
-		return top == -1;
-	}
+    public boolean isValid(String s) {
+        int length = s.length();
+        // 存放左括号的栈
+        char[] stack = new char[length];
+        // 栈顶指针
+        int top = -1;
+        for (int i = 0; i < length; i++) {
+            char ch = s.charAt(i);
+            // 如果是左括号，进栈操作
+            if (ch == '[' || ch == '(' || ch == '{') {
+                stack[++top] = ch;
+            }
+            // 如果是右括号，判断当前括号是否与栈顶的括号配对，若符合，出栈操作
+            if (ch == ']' || ch == ')' || ch == '}') {
+                if (top == -1 || stack[top--] != getTheLeft(ch)) {
+                    return false;
+                }
+            }
+        }
+        return top == -1;
+    }
 
-	private char getTheLeft(char ch) {
-		char ret;
-		switch (ch) {
-		case ']':
-			ret = '[';
-			break;
-		case ')':
-			ret = '(';
-			break;
-		case '}':
-			ret = '{';
-			break;
-		default:
-			ret = '\u0000';
-		}
-		return ret;
-	}
+    private char getTheLeft(char ch) {
+        char ret;
+        switch (ch) {
+        case ']':
+            ret = '[';
+            break;
+        case ')':
+            ret = '(';
+            break;
+        case '}':
+            ret = '{';
+            break;
+        default:
+            ret = '\u0000';
+        }
+        return ret;
+    }
 }

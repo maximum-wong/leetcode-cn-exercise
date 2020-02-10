@@ -73,9 +73,9 @@ public class LeetCode92 {
      */
     private ListNode reverseList(ListNode head) {
         ListNode previous = null;
-        ListNode current =head;
+        ListNode current = head;
         ListNode nextTemp = null;
-        while (current!=null) {
+        while (current != null) {
             nextTemp = current.next;
             current.next = previous;
             previous = current;

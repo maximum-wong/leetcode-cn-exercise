@@ -97,7 +97,7 @@ public class LeetCode4 {
             int j = halfLen - i;
             if (i < iMax && B[j - 1] > A[i]) {
                 iMin = iMin + 1; // i 太小
-            } else if (i > iMin && A[i -1] > B[j]) {
+            } else if (i > iMin && A[i - 1] > B[j]) {
                 iMax = iMax - 1; // i 太大
             } else { // 命中目标，分为基数和偶数情况
                 int maxLeft = 0;
@@ -106,12 +106,12 @@ public class LeetCode4 {
                 } else if (j == 0) {
                     maxLeft = A[i - 1];
                 } else {
-                    maxLeft = Math.max(A[i -1], B[j - 1]);
+                    maxLeft = Math.max(A[i - 1], B[j - 1]);
                 }
                 if ((m + n) % 2 == 1) {
                     return maxLeft;
                 }
-                
+
                 int minRight = 0;
                 if (i == m) {
                     minRight = B[j];
@@ -120,8 +120,8 @@ public class LeetCode4 {
                 } else {
                     minRight = Math.min(B[j], A[i]);
                 }
-                
-                return (maxLeft+minRight) / 2.0;
+
+                return (maxLeft + minRight) / 2.0;
             }
         }
         return 0.0;

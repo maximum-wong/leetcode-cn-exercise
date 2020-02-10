@@ -12,28 +12,28 @@ package cn.kstar.leetcode;
  */
 public class LeetCode69 {
 
-	/**
-	 * <h6>二分法</h6>
-	 * 
-	 * @param  x
-	 * @return int
-	 */
-	public int sqrt(int x) {
-		if (x == 0) {
-			return 0;
-		}
-		int start = 1;
-		int end = x;
-		while (start < end) {
-			int mid = start - (end - start) / 2;
-			if ((x / mid) >= mid && (mid + 1) > x / (mid + 1)) { // 防止溢出
-				return mid;
-			} else if (x / mid < mid) { // 防止溢出
-				end = mid;
-			} else {
-				start = mid + 1;
-			}
-		}
-		return start;
-	}
+    /**
+     * <h6>二分法</h6>
+     * 
+     * @param  x
+     * @return int
+     */
+    public int sqrt(int x) {
+        if (x == 0) {
+            return 0;
+        }
+        int start = 1;
+        int end = x;
+        while (start < end) {
+            int mid = start - (end - start) / 2;
+            if ((x / mid) >= mid && (mid + 1) > x / (mid + 1)) { // 防止溢出
+                return mid;
+            } else if (x / mid < mid) { // 防止溢出
+                end = mid;
+            } else {
+                start = mid + 1;
+            }
+        }
+        return start;
+    }
 }

@@ -13,34 +13,34 @@ package cn.kstar.leetcode;
  */
 public class LeetCode28 {
 
-	/**
-	 * <h6>暴力法</h6>
-	 * 
-	 * @param  haystack
-	 * @param  needle
-	 * @return int
-	 */
-	public int strStr(String haystack, String needle) {
-		int haystackLen = haystack.length();
-		int needleLen = needle.length();
-		// 主字符串位置
-		int i = 0;
-		// 模式字符串位置
-		int j = 0;
-		while (i < haystackLen && j < needleLen) {
-			// 当主串和模式串字符相同时，就各自比较下一个字符
-			if (haystack.charAt(i) == needle.charAt(j)) {
-				i++;
-				j++;
-			} else {
-				// 不相同时，i后退并往后走一步；j归零
-				i = i - j + 1;
-				j = 0;
-			}
-		}
-		if (j == needleLen) {
-			return i - j;
-		}
-		return -1;
-	}
+    /**
+     * <h6>暴力法</h6>
+     * 
+     * @param  haystack
+     * @param  needle
+     * @return int
+     */
+    public int strStr(String haystack, String needle) {
+        int haystackLen = haystack.length();
+        int needleLen = needle.length();
+        // 主字符串位置
+        int i = 0;
+        // 模式字符串位置
+        int j = 0;
+        while (i < haystackLen && j < needleLen) {
+            // 当主串和模式串字符相同时，就各自比较下一个字符
+            if (haystack.charAt(i) == needle.charAt(j)) {
+                i++;
+                j++;
+            } else {
+                // 不相同时，i后退并往后走一步；j归零
+                i = i - j + 1;
+                j = 0;
+            }
+        }
+        if (j == needleLen) {
+            return i - j;
+        }
+        return -1;
+    }
 }

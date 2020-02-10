@@ -14,39 +14,39 @@ package cn.kstar.leetcode;
  */
 public class LeetCode167 {
 
-	/**
-	 * <h6>双指针法</h6>
-	 * 
-	 * <p>时间复杂度：O(n)；空间复杂度：O(1)</p>
-	 * <p>一个指向数组首位置的左指针和另一个指向数组末尾置的右指针，
-	 * <br/>每次遍历时，如果左右指针所指向的元素值之和大于目标值，右指针向前移动一位； 反之，则左指针向后移动一位；
-	 * <br/>如果相等，返回做右指针所指向的数组索引值
-	 * 
-	 * @param array
-	 * @param target
-	 * @return int[]
-	 */
-	public int[] twoSum4(int[] array, int target) {
-		int[] ret = new int[2];
-		if (array == null) {
-			return ret;
-		}
-		// 左指针
-		int leftPointer = 0;
-		// 右指针
-		int rightPointer = array.length - 1;
-		while (leftPointer < rightPointer) {
-			int sum = array[leftPointer] + array[rightPointer];
-			if (sum > target) {
-				rightPointer--;
-			} else if (sum < target) {
-				leftPointer++;
-			} else {
-				ret[0] = leftPointer + 1;
-				ret[1] = rightPointer + 1;
-				return ret;
-			}
-		}
-		return ret;
-	}
+    /**
+     * <h6>双指针法</h6>
+     * 
+     * <p>时间复杂度：O(n)；空间复杂度：O(1)</p>
+     * <p>一个指向数组首位置的左指针和另一个指向数组末尾置的右指针，
+     * <br/>每次遍历时，如果左右指针所指向的元素值之和大于目标值，右指针向前移动一位； 反之，则左指针向后移动一位；
+     * <br/>如果相等，返回做右指针所指向的数组索引值
+     * 
+     * @param array
+     * @param target
+     * @return int[]
+     */
+    public int[] twoSum4(int[] array, int target) {
+        int[] ret = new int[2];
+        if (array == null) {
+            return ret;
+        }
+        // 左指针
+        int leftPointer = 0;
+        // 右指针
+        int rightPointer = array.length - 1;
+        while (leftPointer < rightPointer) {
+            int sum = array[leftPointer] + array[rightPointer];
+            if (sum > target) {
+                rightPointer--;
+            } else if (sum < target) {
+                leftPointer++;
+            } else {
+                ret[0] = leftPointer + 1;
+                ret[1] = rightPointer + 1;
+                return ret;
+            }
+        }
+        return ret;
+    }
 }

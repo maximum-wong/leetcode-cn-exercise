@@ -18,28 +18,28 @@ package cn.kstar.leetcode;
  */
 public class LeetCode26 {
 
-	/**
-	 * <h6>双指针法</h6>
-	 * 
-	 * <p>使用双指针法，左指针和右指针指向相同的元素就跳过。
-	 * <br/>不需要关心遍历完之后由于删除重复元素带来的length变化，因为左指针的位置就是数组长度。</p>
-	 * @param  array
-	 * @return int
-	 */
-	public int removeDuplicates(int[] array) {
-		if (array == null || array.length == 0) {
-			return 0;
-		}
-		// 左指针
-		int index = 0;
-		for (int i = 0, length = array.length; i < length; i++) {
-			// 如果右指针与左指针所指的元素不相同
-			if (array[index] != array[i]) {
-				index++;
-				array[index] = array[i];
-			}
-		}
-		index += 1;
-		return index;
-	}
+    /**
+     * <h6>双指针法</h6>
+     * 
+     * <p>使用双指针法，左指针和右指针指向相同的元素就跳过。
+     * <br/>不需要关心遍历完之后由于删除重复元素带来的length变化，因为左指针的位置就是数组长度。</p>
+     * @param  array
+     * @return int
+     */
+    public int removeDuplicates(int[] array) {
+        if (array == null || array.length == 0) {
+            return 0;
+        }
+        // 左指针
+        int index = 0;
+        for (int i = 0, length = array.length; i < length; i++) {
+            // 如果右指针与左指针所指的元素不相同
+            if (array[index] != array[i]) {
+                index++;
+                array[index] = array[i];
+            }
+        }
+        index += 1;
+        return index;
+    }
 }

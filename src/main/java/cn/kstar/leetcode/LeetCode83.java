@@ -14,27 +14,27 @@ import cn.kstar.leetcode.data_structure.ListNode;
  */
 public class LeetCode83 {
 
-	/**
-	 * <h6>直接遍历进行操作<h6>
-	 * 
-	 * @param  head
-	 * @return ListNode
-	 */
-	public ListNode deleteDuplicates(ListNode head) {
-		ListNode list = head;
-		while (list!=null) {
-			// 当遍历到尾部时停止遍历
-			if (list.next==null) {
-				break;
-			}
-			// 当下一个节点的值等于当前节点的，当前节点指向下一个节点的下一个节点
-			if (list.val==list.next.val) {
-				list.next = list.next.next;
-			} else {
-				list = list.next;
-			}
-		}
-		
-		return head;
-	}
+    /**
+     * <h6>直接遍历进行操作<h6>
+     * 
+     * @param  head
+     * @return ListNode
+     */
+    public ListNode deleteDuplicates(ListNode head) {
+        ListNode list = head;
+        while (list != null) {
+            // 当遍历到尾部时停止遍历
+            if (list.next == null) {
+                break;
+            }
+            // 当下一个节点的值等于当前节点的，当前节点指向下一个节点的下一个节点
+            if (list.val == list.next.val) {
+                list.next = list.next.next;
+            } else {
+                list = list.next;
+            }
+        }
+
+        return head;
+    }
 }

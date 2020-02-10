@@ -13,37 +13,37 @@ package cn.kstar.leetcode;
  */
 public class LeetCode125 {
 
-	/**
-	 * <h6>双指针法</6>
-	 * 
-	 * @param  s
-	 * @return boolean
-	 */
-	public boolean isPalindrome(String s) {
-		if (s == null) {
-			return false;
-		}
-		// 空字符串是回文串
-		if (s.length() == 0) {
-			return true;
-		}
-		int left = 0;
-		int right = s.length() - 1;
-		while (left < right) {
-			// 左右指针所指向的字符不是字母和数字，做相应的移动处理
-			while (left < right && !Character.isLetterOrDigit(s.charAt(left))) {
-				left++;
-			}
-			while (left < right && !Character.isLetterOrDigit(s.charAt(right))) {
-				right--;
-			}
-			// 左右指针分别指向的字符不相等，不是回文串
-			if (Character.toLowerCase(s.charAt(left)) != Character.toLowerCase(s.charAt(right))) {
-				return false;
-			}
-			left++;
-			right--;
-		}
-		return true;
-	}
+    /**
+     * <h6>双指针法</6>
+     * 
+     * @param  s
+     * @return boolean
+     */
+    public boolean isPalindrome(String s) {
+        if (s == null) {
+            return false;
+        }
+        // 空字符串是回文串
+        if (s.length() == 0) {
+            return true;
+        }
+        int left = 0;
+        int right = s.length() - 1;
+        while (left < right) {
+            // 左右指针所指向的字符不是字母和数字，做相应的移动处理
+            while (left < right && !Character.isLetterOrDigit(s.charAt(left))) {
+                left++;
+            }
+            while (left < right && !Character.isLetterOrDigit(s.charAt(right))) {
+                right--;
+            }
+            // 左右指针分别指向的字符不相等，不是回文串
+            if (Character.toLowerCase(s.charAt(left)) != Character.toLowerCase(s.charAt(right))) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
+    }
 }

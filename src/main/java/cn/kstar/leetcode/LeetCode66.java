@@ -16,24 +16,24 @@ package cn.kstar.leetcode;
  */
 public class LeetCode66 {
 
-	public int[] plusOne(int[] digits) {
-		if (digits == null || digits.length == 0) {
-			return digits;
-		}
+    public int[] plusOne(int[] digits) {
+        if (digits == null || digits.length == 0) {
+            return digits;
+        }
 
-		// 进位数
-		int carry = 1;
-		for (int i = digits.length - 1; i >= 0; i--) {
-			int sum = digits[i] + carry;
-			digits[i] = sum % 10;
-			carry = sum / 10;
-		}
-		if (carry != 0) { // 处理位数增加的情况
-			int[] newDigits = new int[digits.length + 1];
-			newDigits[0] = carry;
-			System.arraycopy(digits, 0, newDigits, 1, digits.length);
-			return newDigits;
-		}
-		return digits;
-	}
+        // 进位数
+        int carry = 1;
+        for (int i = digits.length - 1; i >= 0; i--) {
+            int sum = digits[i] + carry;
+            digits[i] = sum % 10;
+            carry = sum / 10;
+        }
+        if (carry != 0) { // 处理位数增加的情况
+            int[] newDigits = new int[digits.length + 1];
+            newDigits[0] = carry;
+            System.arraycopy(digits, 0, newDigits, 1, digits.length);
+            return newDigits;
+        }
+        return digits;
+    }
 }

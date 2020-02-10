@@ -34,38 +34,38 @@ package cn.kstar.leetcode;
  */
 public class LeetCode11 {
 
-	/**
-	 * <h6>双指针法</h6>
-	 * 
-	 * <p>使用双指针来解决此问题，左指针为数组起始位置，右指针为数组终止位置，然后计算此时左右指针包含的面积
-	 * <br/>（注意，计算面积时的高度为左右指针指向的数据取较小的那一个），然后移动指针，移动规则为移动指针指向数据较小的指针（左指针向右移动，右指针向左移动）。
-	 * <br/>当左右指针指向同一个数据时，则退出循环，最大的面积即为所求的值。</p>
-	 * @param  heights
-	 * @return int
-	 */
-	public int maxArea(int[] heights) {
-		// 面积
-		int result = 0;
-		// 左指针
-		int left = 0;
-		// 右指针
-		int right = heights.length - 1;
+    /**
+     * <h6>双指针法</h6>
+     * 
+     * <p>使用双指针来解决此问题，左指针为数组起始位置，右指针为数组终止位置，然后计算此时左右指针包含的面积
+     * <br/>（注意，计算面积时的高度为左右指针指向的数据取较小的那一个），然后移动指针，移动规则为移动指针指向数据较小的指针（左指针向右移动，右指针向左移动）。
+     * <br/>当左右指针指向同一个数据时，则退出循环，最大的面积即为所求的值。</p>
+     * @param  heights
+     * @return int
+     */
+    public int maxArea(int[] heights) {
+        // 面积
+        int result = 0;
+        // 左指针
+        int left = 0;
+        // 右指针
+        int right = heights.length - 1;
 
-		while (left < right) {
-			// 选择两边较小的高度的为容器的高度
-			int height = heights[left] > heights[right] ? heights[right] : heights[left];
-			int area = height * (right - left);
-			// 保留最大面积
-			result = result > area ? result : area;
-			// 移动较小数据的指针
-			if (heights[left] < heights[right]) {
-				// 左指针右移
-				++left;
-			} else {
-				// 右指针左移
-				--right;
-			}
-		}
-		return result;
-	}
+        while (left < right) {
+            // 选择两边较小的高度的为容器的高度
+            int height = heights[left] > heights[right] ? heights[right] : heights[left];
+            int area = height * (right - left);
+            // 保留最大面积
+            result = result > area ? result : area;
+            // 移动较小数据的指针
+            if (heights[left] < heights[right]) {
+                // 左指针右移
+                ++left;
+            } else {
+                // 右指针左移
+                --right;
+            }
+        }
+        return result;
+    }
 }

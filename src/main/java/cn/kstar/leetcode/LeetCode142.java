@@ -19,41 +19,41 @@ import cn.kstar.leetcode.data_structure.ListNode;
  */
 public class LeetCode142 {
 
-	/**
-	 * <h6>快慢指针法</h6>
-	 * 
-	 * <p>遍历链表，在快慢指针相遇的位置，继续遍历慢指针和辅助指针，直至相遇位置为环的入口位置</p>
-	 * @param  head 链表头节点
-	 * @return int 链表环入口位置
-	 */
-	public int detectCycle(ListNode head) {
-		// 链表环入口位置
-		int pos = -1;
-		if (head == null || head.next == null) {
-			return pos;
-		}
+    /**
+     * <h6>快慢指针法</h6>
+     * 
+     * <p>遍历链表，在快慢指针相遇的位置，继续遍历慢指针和辅助指针，直至相遇位置为环的入口位置</p>
+     * @param  head 链表头节点
+     * @return int 链表环入口位置
+     */
+    public int detectCycle(ListNode head) {
+        // 链表环入口位置
+        int pos = -1;
+        if (head == null || head.next == null) {
+            return pos;
+        }
 
-		// 慢指针
-		ListNode slow = head;
-		// 快指针
-		ListNode fast = head;
-		// 辅助指针
-		ListNode start = head;
-		while (fast != null && fast.next != null) {
-			slow = slow.next;
-			fast = fast.next.next;
-			// 当快慢指针相遇时
-			if (slow == fast) {
-				pos++;
-				// 继续遍历慢指针和辅助指针，直至相遇节点为链表环入口位置
-				while (slow != start) {
-					slow = slow.next;
-					start = start.next;
-					pos++;
-				}
-				return pos;
-			}
-		}
-		return pos;
-	}
+        // 慢指针
+        ListNode slow = head;
+        // 快指针
+        ListNode fast = head;
+        // 辅助指针
+        ListNode start = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            // 当快慢指针相遇时
+            if (slow == fast) {
+                pos++;
+                // 继续遍历慢指针和辅助指针，直至相遇节点为链表环入口位置
+                while (slow != start) {
+                    slow = slow.next;
+                    start = start.next;
+                    pos++;
+                }
+                return pos;
+            }
+        }
+        return pos;
+    }
 }

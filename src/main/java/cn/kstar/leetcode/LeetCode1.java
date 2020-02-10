@@ -41,7 +41,7 @@ public class LeetCode1 {
         }
         return ret;
     }
-    
+
     /**
      * <h6>查表法（合并赋值）</h6>
      * 
@@ -69,7 +69,7 @@ public class LeetCode1 {
         }
         return ret;
     }
-    
+
     /**
      * <h6>查表法（循环赋值）</h6>
      * 
@@ -97,5 +97,5 @@ public class LeetCode1 {
         }
         return ret;
     }
-    
+
 }

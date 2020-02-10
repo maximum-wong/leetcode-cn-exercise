@@ -15,43 +15,43 @@ package cn.kstar.leetcode;
  */
 public class LeetCode80 {
 
-	/**
-	 * <h6>双指针法<h6>
-	 *
-	 * <p>使用双指针法，当快指针指向的元素与其上一个不相同时，重复次数记为1，快指针和慢指针都向前移动；
-	 * <br/>当快指针指向的元素与其上一个相同且重复次数没有超过2次时，重复次数加1，快指针和慢指针都向前移动；
-	 * <br/>当快指针指向的元素与其上一个相同且重复次数超过2次时，慢指针不进行任何操作，直接跳过去。
-	 * <br/>直到遍历到数组的末端，返回结果慢指针。</p>
-	 * @param  nums
-	 * @return int
-	 */
-	public int removeDuplicates(int[] nums) {
-		if (nums == null || nums.length == 0) {
-			return 0;
-		}
+    /**
+     * <h6>双指针法<h6>
+     *
+     * <p>使用双指针法，当快指针指向的元素与其上一个不相同时，重复次数记为1，快指针和慢指针都向前移动；
+     * <br/>当快指针指向的元素与其上一个相同且重复次数没有超过2次时，重复次数加1，快指针和慢指针都向前移动；
+     * <br/>当快指针指向的元素与其上一个相同且重复次数超过2次时，慢指针不进行任何操作，直接跳过去。
+     * <br/>直到遍历到数组的末端，返回结果慢指针。</p>
+     * @param  nums
+     * @return int
+     */
+    public int removeDuplicates(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
 
-		if (nums.length <= 2) {
-			return nums.length;
-		}
+        if (nums.length <= 2) {
+            return nums.length;
+        }
 
-		// 返回结果的长度（慢指针）
-		int ret = 1;
-		// 数字重复数
-		int duplicates = 1;
-		for (int i = 1, len = nums.length; i < len; i++) {
-			// 当遇到不相同元素时，数字重复数置为1，慢指针指向的元素的值为快指针指向元素的值，慢指针向前移动
-			if (nums[i] != nums[i - 1]) {
-				duplicates = 1;
-				nums[ret++] = nums[i];
-			} else {
-				// 当遇到相同元素时且重复数小于2时，数字重复数加1，慢指针指向的元素的值为快指针指向元素的值，慢指针向前移动
-				if (duplicates < 2) {
-					nums[ret++] = nums[i];
-					duplicates++;
-				}
-				// 当遇到相同元素时且重复数不小于2时，慢指针不进行任何操作，直接跳过去
-			}
-		}
-		return ret;
-	}
+        // 返回结果的长度（慢指针）
+        int ret = 1;
+        // 数字重复数
+        int duplicates = 1;
+        for (int i = 1, len = nums.length; i < len; i++) {
+            // 当遇到不相同元素时，数字重复数置为1，慢指针指向的元素的值为快指针指向元素的值，慢指针向前移动
+            if (nums[i] != nums[i - 1]) {
+                duplicates = 1;
+                nums[ret++] = nums[i];
+            } else {
+                // 当遇到相同元素时且重复数小于2时，数字重复数加1，慢指针指向的元素的值为快指针指向元素的值，慢指针向前移动
+                if (duplicates < 2) {
+                    nums[ret++] = nums[i];
+                    duplicates++;
+                }
+                // 当遇到相同元素时且重复数不小于2时，慢指针不进行任何操作，直接跳过去
+            }
+        }
+        return ret;
+    }
 }

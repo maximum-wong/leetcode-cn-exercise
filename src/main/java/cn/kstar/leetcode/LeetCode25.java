@@ -17,41 +17,41 @@ import cn.kstar.leetcode.data_structure.ListNode;
  */
 public class LeetCode25 {
 
-	/**
-	 * <h6>递归法</h6>
-	 * 
-	 * @param  head
-	 * @param  k
-	 * @return ListNode
-	 */
-	public ListNode reverseKGroup(ListNode head, int k) {
-		if (head == null || k < 2) {
-			return head;
-		}
+    /**
+     * <h6>递归法</h6>
+     * 
+     * @param  head
+     * @param  k
+     * @return ListNode
+     */
+    public ListNode reverseKGroup(ListNode head, int k) {
+        if (head == null || k < 2) {
+            return head;
+        }
 
-		// 头指针
-		ListNode index = head;
-		// 原链表按照k个一组进行分组
-		ListNode[] temp = new ListNode[k];
-		temp[0] = index;
-		for (int i = 1; i < k; i++) {
-			index = index.next;
-			// 不足k个元素的分组，不进行翻转操作
-			if (index == null) {
-				return head;
-			} else {
-				temp[i] = index;
-			}
-		}
+        // 头指针
+        ListNode index = head;
+        // 原链表按照k个一组进行分组
+        ListNode[] temp = new ListNode[k];
+        temp[0] = index;
+        for (int i = 1; i < k; i++) {
+            index = index.next;
+            // 不足k个元素的分组，不进行翻转操作
+            if (index == null) {
+                return head;
+            } else {
+                temp[i] = index;
+            }
+        }
 
-		// 分组的第一个元素元素连接递归返回来的后续结果
-		temp[0].next = reverseKGroup(temp[k - 1].next, k);
+        // 分组的第一个元素元素连接递归返回来的后续结果
+        temp[0].next = reverseKGroup(temp[k - 1].next, k);
 
-		// 翻转分组元素
-		for (int i = 1; i < k; i++) {
-			temp[i].next = temp[i - 1];
-		}
-		// 返回分组最后一个元素
-		return temp[k - 1];
-	}
+        // 翻转分组元素
+        for (int i = 1; i < k; i++) {
+            temp[i].next = temp[i - 1];
+        }
+        // 返回分组最后一个元素
+        return temp[k - 1];
+    }
 }

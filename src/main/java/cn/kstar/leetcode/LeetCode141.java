@@ -19,31 +19,31 @@ import cn.kstar.leetcode.data_structure.ListNode;
  */
 public class LeetCode141 {
 
-	/**
-	 * <h6>快慢指针法</h6>
-	 * 
-	 * <p>遍历链表，如果链表有环，快指针和慢指针总会相遇；反之，则快指针指向null</p>
-	 * @param  head
-	 * @return boolean
-	 */
-	public boolean hasCycle(ListNode head) {
-		if (head == null || head.next == null) {
-			return false;
-		}
+    /**
+     * <h6>快慢指针法</h6>
+     * 
+     * <p>遍历链表，如果链表有环，快指针和慢指针总会相遇；反之，则快指针指向null</p>
+     * @param  head
+     * @return boolean
+     */
+    public boolean hasCycle(ListNode head) {
+        if (head == null || head.next == null) {
+            return false;
+        }
 
-		// 慢指针
-		ListNode slow = head;
-		// 快指针
-		ListNode fast = head.next;
-		// 在快慢指针不相遇时，进行遍历操作
-		while (slow != fast) {
-			// 链表无环
-			if (fast == null || fast.next == null) {
-				return false;
-			}
-			slow = slow.next;
-			fast = fast.next.next;
-		}
-		return true;
-	}
+        // 慢指针
+        ListNode slow = head;
+        // 快指针
+        ListNode fast = head.next;
+        // 在快慢指针不相遇时，进行遍历操作
+        while (slow != fast) {
+            // 链表无环
+            if (fast == null || fast.next == null) {
+                return false;
+            }
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return true;
+    }
 }

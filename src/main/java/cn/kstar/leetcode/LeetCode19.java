@@ -13,30 +13,30 @@ import cn.kstar.leetcode.data_structure.ListNode;
  */
 public class LeetCode19 {
 
-	/**
-	 * <p>链表的题目基本上都是优先考虑双指针。
-	 * <br/>一个指针先走N步，然后两个指针同步移动到链表末尾，移除前一个指针所指着的节点即可。</p>
-	 * 
-	 * @param  head
-	 * @param  n
-	 * @return ListNode
-	 */
-	public ListNode removeNthFromEnd(ListNode head, int n) {
-		ListNode right = head;
-		ListNode left = head;
-		for (int i = 0; i < n; i++) {
-			right = right.next;
-		}
-		// 边界条件处理
-		if (right == null) {
-			head = head.next;
-			return head;
-		}
-		while (right.next != null) {
-			left = left.next;
-			right = right.next;
-		}
-		left.next = left.next.next;
-		return head;
-	}
+    /**
+     * <p>链表的题目基本上都是优先考虑双指针。
+     * <br/>一个指针先走N步，然后两个指针同步移动到链表末尾，移除前一个指针所指着的节点即可。</p>
+     * 
+     * @param  head
+     * @param  n
+     * @return ListNode
+     */
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        ListNode right = head;
+        ListNode left = head;
+        for (int i = 0; i < n; i++) {
+            right = right.next;
+        }
+        // 边界条件处理
+        if (right == null) {
+            head = head.next;
+            return head;
+        }
+        while (right.next != null) {
+            left = left.next;
+            right = right.next;
+        }
+        left.next = left.next.next;
+        return head;
+    }
 }

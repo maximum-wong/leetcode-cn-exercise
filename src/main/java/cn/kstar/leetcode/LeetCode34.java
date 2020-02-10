@@ -13,58 +13,58 @@ package cn.kstar.leetcode;
  */
 public class LeetCode34 {
 
-	/**
-	 * <h6>二分查找法</h6>
-	 * 
-	 * @param  array
-	 * @param  target
-	 * @return int[]
-	 */
-	public int[] searchRange(int[] array, int target) {
-		int[] ret = { -1, -1 };
-		if (array == null || array.length == 0) {
-			return ret;
-		}
-		// 左边界
-		int left = 0;
-		// 右边界
-		int right = array.length;
-		// 中间位置
-		int mid = (left + right) / 2;
-		// 任意目标元素的位置
-		int position = -1;
-		while (left < right) {
-			if (array[mid] > target) {
-				if (right == mid) {
-					break;
-				}
-				right = mid;
-				mid = (left + right) / 2;
-			} else if (array[mid] < target) {
-				if (left == mid) {
-					break;
-				}
-				left = mid;
-				mid = (left + right) / 2;
-			} else {
-				position = mid;
-				break;
-			}
-		}
-		if (position == -1) {
-			return ret;
-		} else {
-			int firstPosition = position;
-			int lastPosition = position;
-			// 寻找第一个位置的目标元素
-			while ((firstPosition > 0) && (array[firstPosition - 1] == target)) {
-				firstPosition--;
-			}
-			// 寻找最后一个位置的目标元素
-			while ((lastPosition < array.length - 1) && (array[lastPosition + 1] == target)) {
-				lastPosition++;
-			}
-			return new int[] { firstPosition, lastPosition };
-		}
-	}
+    /**
+     * <h6>二分查找法</h6>
+     * 
+     * @param  array
+     * @param  target
+     * @return int[]
+     */
+    public int[] searchRange(int[] array, int target) {
+        int[] ret = { -1, -1 };
+        if (array == null || array.length == 0) {
+            return ret;
+        }
+        // 左边界
+        int left = 0;
+        // 右边界
+        int right = array.length;
+        // 中间位置
+        int mid = (left + right) / 2;
+        // 任意目标元素的位置
+        int position = -1;
+        while (left < right) {
+            if (array[mid] > target) {
+                if (right == mid) {
+                    break;
+                }
+                right = mid;
+                mid = (left + right) / 2;
+            } else if (array[mid] < target) {
+                if (left == mid) {
+                    break;
+                }
+                left = mid;
+                mid = (left + right) / 2;
+            } else {
+                position = mid;
+                break;
+            }
+        }
+        if (position == -1) {
+            return ret;
+        } else {
+            int firstPosition = position;
+            int lastPosition = position;
+            // 寻找第一个位置的目标元素
+            while ((firstPosition > 0) && (array[firstPosition - 1] == target)) {
+                firstPosition--;
+            }
+            // 寻找最后一个位置的目标元素
+            while ((lastPosition < array.length - 1) && (array[lastPosition + 1] == target)) {
+                lastPosition++;
+            }
+            return new int[] { firstPosition, lastPosition };
+        }
+    }
 }

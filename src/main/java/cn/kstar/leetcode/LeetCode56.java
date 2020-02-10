@@ -18,58 +18,58 @@ import java.util.List;
  */
 public class LeetCode56 {
 
-	/**
-	 * <p>解题思路：在排好序的情况下，当第一个区间的end>=第二个区间的start时，两个区间可以合并。</p>
-	 * 
-	 * @param intervals
-	 * @return List<Interval>
-	 */
-	public List<Interval> merge(List<Interval> intervals) {
-		if ((intervals == null) || (intervals.isEmpty())) {
-			return intervals;
-		}
+    /**
+     * <p>解题思路：在排好序的情况下，当第一个区间的end>=第二个区间的start时，两个区间可以合并。</p>
+     * 
+     * @param intervals
+     * @return List<Interval>
+     */
+    public List<Interval> merge(List<Interval> intervals) {
+        if ((intervals == null) || (intervals.isEmpty())) {
+            return intervals;
+        }
 
-		int n = intervals.size();
-		// 开始部分
-		int[] starts = new int[n];
-		// 结束部分
-		int[] ends = new int[n];
-		for (int i = 0; i < n; i++) {
-			starts[i] = intervals.get(i).start;
-			ends[i] = intervals.get(i).end;
-		}
-		// 排序区间
-		Arrays.sort(starts);
-		Arrays.sort(ends);
+        int n = intervals.size();
+        // 开始部分
+        int[] starts = new int[n];
+        // 结束部分
+        int[] ends = new int[n];
+        for (int i = 0; i < n; i++) {
+            starts[i] = intervals.get(i).start;
+            ends[i] = intervals.get(i).end;
+        }
+        // 排序区间
+        Arrays.sort(starts);
+        Arrays.sort(ends);
 
-		int i = 0;
-		List<Interval> ret = new ArrayList<>();
-		while (i < n) {
-			int start = starts[i];
-			// 合并区间
-			while ((i < n - 1) && (starts[i + 1] <= ends[i])) {
-				i++;
-			}
-			// 产生新区间
-			int end = ends[i];
-			ret.add(new Interval(start, end));
-			i++;
-		}
-		return ret;
-	}
+        int i = 0;
+        List<Interval> ret = new ArrayList<>();
+        while (i < n) {
+            int start = starts[i];
+            // 合并区间
+            while ((i < n - 1) && (starts[i + 1] <= ends[i])) {
+                i++;
+            }
+            // 产生新区间
+            int end = ends[i];
+            ret.add(new Interval(start, end));
+            i++;
+        }
+        return ret;
+    }
 }
 
 class Interval {
-	int start;
-	int end;
+    int start;
+    int end;
 
-	public Interval() {
-		this.start = 0;
-		this.end = 0;
-	}
+    public Interval() {
+        this.start = 0;
+        this.end = 0;
+    }
 
-	public Interval(int s, int e) {
-		this.start = s;
-		this.end = e;
-	}
+    public Interval(int s, int e) {
+        this.start = s;
+        this.end = e;
+    }
 }

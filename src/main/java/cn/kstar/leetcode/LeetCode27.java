@@ -16,23 +16,23 @@ package cn.kstar.leetcode;
  */
 public class LeetCode27 {
 
-	/**
-	 * <h6>双指针法</h6>
-	 * 
-	 * <p>使用双指针法，右指针指向的元素等于指定元素就跳过。</p>
-	 * @param  array
-	 * @param  value
-	 * @return int
-	 */
-	public int removeElement(int[] array, int value) {
-		// 左指针
-		int index = 0;
-		for (int i = 0, length = array.length; i < length; i++) {
-			// 右指针所指的元素不等于指定元素
-			if (array[i] != value) {
-				array[index++] = array[i];
-			}
-		}
-		return index;
-	}
+    /**
+     * <h6>双指针法</h6>
+     * 
+     * <p>使用双指针法，右指针指向的元素等于指定元素就跳过。</p>
+     * @param  array
+     * @param  value
+     * @return int
+     */
+    public int removeElement(int[] array, int value) {
+        // 左指针
+        int index = 0;
+        for (int i = 0, length = array.length; i < length; i++) {
+            // 右指针所指的元素不等于指定元素
+            if (array[i] != value) {
+                array[index++] = array[i];
+            }
+        }
+        return index;
+    }
 }

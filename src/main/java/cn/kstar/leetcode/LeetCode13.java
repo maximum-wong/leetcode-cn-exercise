@@ -36,25 +36,25 @@ import java.util.Map;
  */
 public class LeetCode13 {
 
-	public int romanNumeralConverToArabicNumerals(String input) {
-		int ret = 0;
-		Map<Character, Integer> map = new HashMap<>();
-		map.put('I', 1);
-		map.put('V', 5);
-		map.put('X', 10);
-		map.put('L', 50);
-		map.put('C', 100);
-		map.put('D', 500);
-		map.put('M', 1000);
-		for (int i = 0, length = input.length(); i < length; i++) {
-			char ch = input.charAt(i);
-			Integer value = map.get(ch);
-			if ((i == length - 1) || map.get(input.charAt(i + 1)) <= map.get(ch)) {// 大的数字在小的数字左边
-				ret += value;
-			} else { // 小的数字在大的数字左边
-				ret -= value;
-			}
-		}
-		return ret;
-	}
+    public int romanNumeralConverToArabicNumerals(String input) {
+        int ret = 0;
+        Map<Character, Integer> map = new HashMap<>();
+        map.put('I', 1);
+        map.put('V', 5);
+        map.put('X', 10);
+        map.put('L', 50);
+        map.put('C', 100);
+        map.put('D', 500);
+        map.put('M', 1000);
+        for (int i = 0, length = input.length(); i < length; i++) {
+            char ch = input.charAt(i);
+            Integer value = map.get(ch);
+            if ((i == length - 1) || map.get(input.charAt(i + 1)) <= map.get(ch)) {// 大的数字在小的数字左边
+                ret += value;
+            } else { // 小的数字在大的数字左边
+                ret -= value;
+            }
+        }
+        return ret;
+    }
 }

@@ -32,49 +32,49 @@ import java.util.List;
  */
 public class LeetCode17 {
 
-	// 保存映射关系
-	private static final String[][] numberList = new String[][] { 
-		{ "a", "b", "c" },
-		{ "d", "e", "f" },
-		{ "g", "h", "i" },
-		{ "j", "k", "l" },
-		{ "m", "n", "o" },
-		{ "p", "q", "r", "s" },
-		{ "t", "u", "v" },
-		{ "w", "x", "y", "z" },
-	};
-	
-	/**
-	 * <h6>递归法</h6>
-	 * 
-	 * @param  digits
-	 * @return List<String>
-	 */
-	public List<String> letterCombinations(String digits) {
+    // 保存映射关系
+    private static final String[][] numberList = new String[][] { 
+        { "a", "b", "c" },
+        { "d", "e", "f" },
+        { "g", "h", "i" },
+        { "j", "k", "l" },
+        { "m", "n", "o" },
+        { "p", "q", "r", "s" },
+        { "t", "u", "v" },
+        { "w", "x", "y", "z" },
+    };
 
-		List<String> result = new ArrayList<>();
-		if (digits == null || digits.length() == 0) {
-			return result;
-		}
+    /**
+     * <h6>递归法</h6>
+     * 
+     * @param  digits
+     * @return List<String>
+     */
+    public List<String> letterCombinations(String digits) {
 
-		// 获取第一个数字映射的字母序列
-		int first = digits.charAt(0) - 48 - 2;
-		String[] current = numberList[first];
+        List<String> result = new ArrayList<>();
+        if (digits == null || digits.length() == 0) {
+            return result;
+        }
 
-		if (digits.length() == 1) {
-			result.addAll(Arrays.asList(current));
-			return result;
-		}
+        // 获取第一个数字映射的字母序列
+        int first = digits.charAt(0) - 48 - 2;
+        String[] current = numberList[first];
 
-		// 递归地处理第一个数字以后的字符串
-		List<String> leftList = letterCombinations(digits.substring(1));
+        if (digits.length() == 1) {
+            result.addAll(Arrays.asList(current));
+            return result;
+        }
 
-		// 拼接递归返回的结果
-		for (String aCurrent : current) {
-			for (String str : leftList) {
-				result.add(aCurrent + str);
-			}
-		}
-		return result;
-	}
+        // 递归地处理第一个数字以后的字符串
+        List<String> leftList = letterCombinations(digits.substring(1));
+
+        // 拼接递归返回的结果
+        for (String aCurrent : current) {
+            for (String str : leftList) {
+                result.add(aCurrent + str);
+            }
+        }
+        return result;
+    }
 }
