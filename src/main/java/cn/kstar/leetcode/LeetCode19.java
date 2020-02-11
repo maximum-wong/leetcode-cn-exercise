@@ -14,29 +14,34 @@ import cn.kstar.leetcode.data_structure.ListNode;
 public class LeetCode19 {
 
     /**
-     * <p>链表的题目基本上都是优先考虑双指针。
-     * <br/>一个指针先走N步，然后两个指针同步移动到链表末尾，移除前一个指针所指着的节点即可。</p>
+     * <h6>快慢指针法</h6>
+     * 
+     * <p>链表的题目基本上都是优先考虑双指针（快慢指针）。
+     * <br/>快指针先走N步，然后两个指针同步进行移动，直到快指针移到链表末尾，慢指针移除所指着的节点即可。</p>
      * 
      * @param  head
      * @param  n
      * @return ListNode
      */
     public ListNode removeNthFromEnd(ListNode head, int n) {
-        ListNode right = head;
-        ListNode left = head;
+        ListNode fast = head;
+        ListNode slow = head;
+        // 快指针先走n步
         for (int i = 0; i < n; i++) {
-            right = right.next;
+            fast = fast.next;
         }
-        // 边界条件处理
-        if (right == null) {
+        // 处理特殊情况，n大小恰好是与链表长度相同，直接移除头节点，返回结果
+        if (fast == null) {
             head = head.next;
             return head;
         }
-        while (right.next != null) {
-            left = left.next;
-            right = right.next;
+        // 快慢指针同时移动
+        while (fast.next != null) {
+            slow = slow.next;
+            fast = fast.next;
         }
-        left.next = left.next.next;
+        // 移除慢指针所指的元素
+        slow.next = slow.next.next;
         return head;
     }
 }
