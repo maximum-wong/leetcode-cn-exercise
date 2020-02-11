@@ -30,7 +30,7 @@ public class LeetCode191 {
 
     /**
      * <h6>位操作法</h6>
-     * 
+     *
      * @param  n
      * @return int
      */
@@ -47,7 +47,7 @@ public class LeetCode191 {
 
     /**
      * <h6>位移法<h6>
-     * 
+     *
      * @param n
      * @return
      */
