@@ -5,12 +5,12 @@ package cn.kstar.leetcode;
  *
  * <p>给定一个只包含 '(' 和 ')' 的字符串，找出最长的包含有效括号的子串的长度。</p>
  * <pre><b>Examples:</b>
- * Input: "(()"
- * Output: 2
+ * <b>Example 1: </b>
+ * Input: "(()"; Output: 2
  * Explanation: 最长有效括号子串为 "()"
  * 
- * Input: ")()())"
- * Output: 4
+ * <b>Example 2: </b>
+ * Input: ")()())"; Output: 4
  * Explanation: 最长有效括号子串为 "()()"
  * </pre>
  */
