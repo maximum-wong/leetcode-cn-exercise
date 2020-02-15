@@ -23,8 +23,8 @@ public class LeetCode206 {
      * @return ListNode
      */
     public ListNode reverseList(ListNode head) {
-        if (head == null) {
-            return null;
+        if (head == null || head.next==null) {
+            return head;
         }
 
         // 指向上一个节点的指针

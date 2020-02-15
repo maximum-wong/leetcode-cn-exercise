@@ -72,6 +72,10 @@ public class LeetCode92 {
      * @return ListNode
      */
     private ListNode reverseList(ListNode head) {
+        if (head.next == null) {
+            return head;
+        }
+
         ListNode previous = null;
         ListNode current = head;
         ListNode nextTemp = null;

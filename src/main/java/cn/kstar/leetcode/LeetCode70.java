@@ -7,9 +7,11 @@ package cn.kstar.leetcode;
  * <br/>每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？
  * <br/>注意：给定 n 是一个正整数。</p>
  * <pre><b>Examples: </b>
+ * <b>Example 1: </b>
  * Input: 2; Output: 2;
  * Explanation: 有两种方法可以爬到楼顶。1.  1 阶 + 1 阶；2.  2 阶
  * 
+ * <b>Example 2: </b>
  * Input: 3; Output: 3;
  * Explanation: 有三种方法可以爬到楼顶。1.  1 阶 + 1 阶 + 1 阶；2.  1 阶 + 2 阶；3.  2 阶 + 1 阶
  * </pre>

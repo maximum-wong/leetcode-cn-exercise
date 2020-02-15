@@ -4,25 +4,19 @@ package cn.kstar.leetcode;
  * <h3>整数反转</h3>
  *
  * <p>给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进行反转。</p>
- * 
- * <p>
- * <strong>Example 1: </strong><br/>
- * Input: 123<br/>
+ * <pre><b>Examples:</b>
+ * <b>Example 1: </b>
+ * Input: 123
  * Output: 321
- * </p>
  * 
- * <p>
- * <strong>Example 2: </strong><br/>
- * Input: -123<br/>
+ * <b>Example 2: </b>
+ * Input: -123
  * Output: -321
- * </p>
  * 
- * <p>
- * <strong>Example 3: </strong><br/>
- * Input: -123<br/>
+ * <b>Example 3: </b>
+ * Input: -123
  * Output: -321
- * </p>
- * 
+ * </pre>
  */
 public class LeetCode7 {
 
@@ -59,7 +53,9 @@ public class LeetCode7 {
     }
 
     /**
-     * 判断溢出的另一种方法
+     * <p><b>判断溢出的另一种方法：</b>
+     * <br/>中间结果大于int最大值的1/10（或等于）或者小于最小值的1/10时，下一个结果会溢出。
+     * </p>
      * 
      * @param x
      * @return int

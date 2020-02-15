@@ -10,9 +10,11 @@ import cn.kstar.leetcode.data_structure.ListNode;
  * <br/>如果 pos 是 -1，则在该链表中没有环。
  * <br/>你能用 O(1)（即，常量）内存解决此问题吗？</p>
  * <pre><b>Examples: </b>
+ * <b>Example 1: </b>
  * Input: head = [3,2,0,-4], pos = 1; Output: true
  * Explanation: 链表中有一个环，其尾部连接到第二个节点。
  * 
+ * <b>Example 2: </b>
  * Input: head = [1,2], pos = 0; Output: true
  * Explanation: 链表中有一个环，其尾部连接到第一个节点。
  * </pre>
