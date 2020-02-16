@@ -1,5 +1,8 @@
 package cn.kstar.leetcode.data_structure;
 
+/**
+ * <h6>单向链表的结点类</h6>
+ */
 public class ListNode {
 
     public ListNode(int val) {
