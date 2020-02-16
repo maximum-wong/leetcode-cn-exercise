@@ -20,18 +20,24 @@ public class LeetCode203 {
             return head;
         }
 
+        // 添加虚拟头节点
         ListNode dummy = new ListNode(-1);
         dummy.next = head;
+        // 当前指针
         ListNode current = head;
+        // 前指针
         ListNode prev = dummy;
+        // 后指针
         ListNode next = null;
 
         while (current != null) {
+            // 删除等于目标值的节点
             if (current.val == val) {
                 next = current.next;
                 prev.next = next;
                 current = next;
             } else {
+                // 向后移动前指针和当前指针
                 prev = current;
                 current = current.next;
             }
