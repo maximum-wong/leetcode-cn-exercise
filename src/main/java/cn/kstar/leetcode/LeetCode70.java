@@ -19,7 +19,7 @@ package cn.kstar.leetcode;
 public class LeetCode70 {
 
 	/**
-    * <h6>状态规划法</h6>
+    * <h6>动态规划法</h6>
     * 
     * <p>使用DP法，状态方程为：dp[i]=dp[i-1]+dp[i-2]。
     * </br/>i-1的时候跳一步可以到达i；i-2的时候跳一步是i-1，这个变成dp[i-1]的子问题了,直接跳两步可以到达i</p>
@@ -40,5 +40,85 @@ public class LeetCode70 {
             dp[i] = dp[i - 1] + dp[i - 2];
         }
         return dp[n];
+    }
+
+    /**
+     * <h6>动态规划法（优化）</h6>
+     * 
+     * @param n
+     * @return int
+     */
+    public int climbStairs2(int n) {
+        if (n <= 0) {
+            return 0;
+        }
+
+        if (n == 1 || n == 2) {
+            return n;
+        }
+
+        int ret = 0;
+        // 保存上一个结果
+        int pre = 2;
+        // 保存上一个的上一个的结果
+        int prePre = 1;
+        for (int i = 3; i <= n; i++) {
+            ret = pre + prePre;
+            prePre = pre;
+            pre = ret;
+        }
+        return ret;
+    }
+
+    /**
+     * <h6>递归法（备忘录方式）</h6>
+     * 
+     * @param  n
+     * @return int
+     */
+    public int climbStairs3(int n) {
+        if (n <= 0) {
+            return 0;
+        }
+
+        if (n == 1 || n == 2) {
+            return n;
+        }
+
+        // 使用一个数组保存已经计算过的值
+        if (results == null) {
+            results = new int[n + 1];
+        }
+
+        // 先从备忘录里面查找
+        if (results[n] != 0) {
+            return results[n];
+        }
+
+        // 查找不到再进行递归运算
+        int ret = climbStairs2(n - 1) + climbStairs2(n - 2);
+        // 保存递归运算的结果
+        results[n] = ret;
+        return ret;
+    }
+
+    private int[] results = null;
+
+    /**
+     * <h6>递归法</h6>
+     * 
+     * @param  n
+     * @return int
+     */
+    public int climbStairs4(int n) {
+        if (n <= 0) {
+            return 0;
+        }
+
+        if (n == 1 || n == 2) {
+            return n;
+        }
+
+        return climbStairs3(n - 1) + climbStairs3(n - 2);
     }
 }
