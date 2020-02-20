@@ -42,14 +42,16 @@ public class LeetCode155 {
 
 class MinStack {
 
-    // 初始化栈
-    Stack<Integer> mainStack = new Stack<>();
-    Stack<Integer> assistStack = new Stack<>();
+    /** 主栈 */
+    private Stack<Integer> mainStack;
+
+    /** 辅助栈 */
+    private Stack<Integer> assistStack;
 
     /** initialize your data structure here. */
     public MinStack() {
-        // 先加入int最大值在栈底，避免判断辅助栈为空
-        assistStack.push(0X7FFFFFFF);
+        mainStack = new Stack<>();
+        assistStack = new Stack<>();
     }
 
     /**
@@ -60,7 +62,7 @@ class MinStack {
     public void push(int x) {
         mainStack.push(x);
         // 不大于辅助栈栈顶的元素，加入到辅助栈中
-        if (assistStack.peek() >= x) {
+        if (assistStack.isEmpty() || assistStack.peek() >= x) {
             assistStack.push(x);
         }
     }
