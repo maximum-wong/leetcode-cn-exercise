@@ -50,8 +50,9 @@ public class LeetCode20 {
         char[] stack = new char[length];
         // 栈顶指针
         int top = -1;
+        char ch;
         for (int i = 0; i < length; i++) {
-            char ch = s.charAt(i);
+            ch = s.charAt(i);
             // 如果是左括号，进栈操作
             if ((ch == '[') || (ch == '(') || (ch == '{')) {
                 stack[++top] = ch;
