@@ -37,7 +37,7 @@ import java.util.Map;
  * cache.get(4); // returns 4
  * </pre>
  */
-public class LeeCode146 {
+public class LeeTCode146 {
     
     public static void main(String[] args) {
         LRUCache lruCache = new LRUCache(3);
