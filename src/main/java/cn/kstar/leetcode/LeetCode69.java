@@ -25,7 +25,7 @@ public class LeetCode69 {
         int start = 1;
         int end = x;
         while (start < end) {
-            int mid = start - (end - start) / 2;
+            int mid = start - (start - end) >> 2;
             if ((x / mid) >= mid && (mid + 1) > x / (mid + 1)) { // 防止溢出
                 return mid;
             } else if (x / mid < mid) { // 防止溢出
@@ -35,5 +35,11 @@ public class LeetCode69 {
             }
         }
         return start;
+    }
+    
+    public static void main(String[] args) {
+        LeetCode69 leetCode69 = new LeetCode69();
+        int res = leetCode69.sqrt(9);
+        System.out.println(res);
     }
 }
