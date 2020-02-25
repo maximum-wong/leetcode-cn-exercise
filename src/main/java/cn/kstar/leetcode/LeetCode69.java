@@ -36,10 +36,5 @@ public class LeetCode69 {
         }
         return start;
     }
-    
-    public static void main(String[] args) {
-        LeetCode69 leetCode69 = new LeetCode69();
-        int res = leetCode69.sqrt(9);
-        System.out.println(res);
-    }
+
 }

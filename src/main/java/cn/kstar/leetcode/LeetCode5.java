@@ -1,12 +1,12 @@
 package cn.kstar.leetcode;
 
 /**
- * <h3>Longest Palindromic Substring
- * <br/>最长回文子串</h3>
+ * <h3>最长回文子串
+ * <br/>Longest Palindromic Substring</h3>
  * 
- * <p>Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.
- * <br/>给定一个字符串 s，找到 s中最长的回文子串。你可以假设 s的最大长度为1000。<p>
- * 
+ * <p>给定一个字符串 s，找到 s中最长的回文子串。你可以假设 s的最大长度为1000。
+ * <br/>Given a string s, find the longest palindromic substring in s.
+ * You may assume that the maximum length of s is 1000.<p>
  * <pre>
  * <b>Example 1:</b>
  * Input: "babad" Output: "bab"
@@ -42,11 +42,11 @@ public class LeetCode5 {
         int end = 0;
         for (int i = 0, length = s.length(); i < length; i++) {
             // 计算偶数长度字符串的结果
-            int result1 = expandAroundCenter(s, i, i+1);
+            int result1 = expandAroundCenter(s, i, i + 1);
             // 计算奇数长度字符串的结果
             int result2 = expandAroundCenter(s, i, i);
             // 计算比较长的结果的起始位置和终止位置
-            int result = max(result1, result2);
+            int result = (result1 > result2) ? result1 : result2;
             if (result > end - start) {
                 start = i - (result - 1) / 2;
                 end = i + result / 2;
@@ -67,14 +67,6 @@ public class LeetCode5 {
         return rightIndex - leftIndex - 1;
     }
 
-    private int max(int x, int y) {
-        return (x > y) ? x : y;
-    }
-
-    private int min(int x, int y) {
-        return (x < y) ? x : y;
-    }
-
     /**
      * <h6>dp解法</h6>
      * 
@@ -84,8 +76,9 @@ public class LeetCode5 {
      * <br/>dp[i][j]表示区间[i,j]是否为回文串,那么有如下状态转移方程：
      * <li>i = j, 即一个字符的时候，dp[i][j] = true；</li>
      * <li>i - j = 1，当且仅当两个字符相等的时候，是回文字符，dp[i][j]= (s[i] == s[j])</li>
-     * <li>i - j > 1, 这个时候当前字符相等还不行，还要他们中间的字符串是回文字符串，而中间是不是回文字符串，上一轮的遍历中已经知道， 状态转移方程为：
-     * dp[i][j] = (s[i] == s[j] && dp[j+1][i-1])</li></p>
+     * <li>i - j > 1, 这个时候当前字符相等还不行，还要他们中间的字符串是回文字符串，而中间是不是回文字符串，
+     * 上一轮的遍历中已经知道， 状态转移方程为：dp[i][j] = (s[i] == s[j] && dp[j+1][i-1])</li>
+     * </p>
      * 
      * @param  str
      * @return String
@@ -145,6 +138,14 @@ public class LeetCode5 {
             max = max(max, radius[i]);
         }
         return max - 1;
+    }
+
+    private int max(int x, int y) {
+        return (x > y) ? x : y;
+    }
+
+    private int min(int x, int y) {
+        return (x < y) ? x : y;
     }
 
     private char[] manacherString(String str) {
