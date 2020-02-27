@@ -2,6 +2,7 @@ package cn.kstar.leetcode;
 
 /**
  * <h6>打家劫舍</h6>
+ *
  * <p>你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，
  * <br/>影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，
  * 如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警。
@@ -30,8 +31,8 @@ public class LeetCode198 {
      * <br/>如果数组长度为2，就打劫钱最多的那家
      * <br/>如果数组长度为3及以上，考虑打劫第i家的时候，要比较打劫第i-1家获取的钱和打劫第i家、第i-2家共同获取钱的多少
      * <br/>动态方程为：dp[i]=max(dp[i-1], nums[i]+dp[i-2])</p>
-     * @param nums
-     * @return
+     * @param  nums
+     * @return int
      */
     public int rob(int[] nums) {
         if (nums == null || nums.length == 0) {
