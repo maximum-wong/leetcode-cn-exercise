@@ -112,25 +112,25 @@ public class LeetCode1 {
         if (array == null || array.length == 0) {
             return array;
         }
-        
+
         // 对数组进行排序
         Arrays.sort(array);
-        
+
         int[] ret = new int[2];
         int left = 0;
-        int right = array.length-1;
-        while (left<right) {
-            if (array[left]+array[right]==target) {
+        int right = array.length - 1;
+        while (left < right) {
+            if (array[left] + array[right] == target) {
                 ret[0] = array[left];
                 ret[1] = array[right];
                 return ret;
-            } else if (array[left]+array[right]<target) {
+            } else if (array[left] + array[right] < target) {
                 left++;
             } else {
                 right--;
             }
         }
-        
+
         return ret;
     }
 }
