@@ -45,51 +45,51 @@ public class LeetCode63 {
      * @return int
      */
     public int uniquePathsWithObstacles(int[][] obstacleGrid) {
-        if (obstacleGrid==null) {
+        if (obstacleGrid == null) {
             return 0;
         }
-        
-        if (obstacleGrid[0][0]==1) {
+
+        if (obstacleGrid[0][0] == 1) {
             return 0;
         }
-        
+
         int n = obstacleGrid.length;
         int m = obstacleGrid[0].length;
         int[][] dp = new int[n][m];
         dp[0][0] = 1;
-        
+
         // 处理第一行
         for (int i = 1; i < m; i++) {
-            if (dp[0][i-1]==0) { // 之前位置有路障
+            if (dp[0][i - 1] == 0) { // 之前位置有路障
                 dp[0][i] = 0;
-            } else if (obstacleGrid[0][i]==1) { // 当前位置有路障
+            } else if (obstacleGrid[0][i] == 1) { // 当前位置有路障
                 dp[0][i] = 0;
-            }else {
+            } else {
                 dp[0][i] = 1;
             }
         }
-        
+
         // 处理第一列
         for (int i = 1; i < n; i++) {
-            if (dp[i-1][0]==0) {  // 之前位置有路障
+            if (dp[i - 1][0] == 0) { // 之前位置有路障
                 dp[i][0] = 0;
-            } else if (obstacleGrid[i][0]==1) { // 当前位置有路障
+            } else if (obstacleGrid[i][0] == 1) { // 当前位置有路障
                 dp[i][0] = 0;
             } else {
                 dp[i][0] = 1;
             }
         }
-        
+
         // 统计结果
         for (int i = 1; i < n; i++) {
             for (int j = 1; j < m; j++) {
-                if (obstacleGrid[i][j]==0) {
-                    dp[i][j] = dp[i][j-1]+dp[i-1][j];
+                if (obstacleGrid[i][j] == 0) {
+                    dp[i][j] = dp[i][j - 1] + dp[i - 1][j];
                 } else {
                     dp[i][j] = 0;
                 }
             }
         }
-        return dp[n-1][m-1];
+        return dp[n - 1][m - 1];
     }
 }
