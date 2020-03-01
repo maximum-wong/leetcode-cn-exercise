@@ -47,8 +47,8 @@ public class LeetCode53 {
         dp[0] = nums[0];
         int result = dp[0];
         for (int i = 1; i < length; i++) {
-            dp[i] = dp[i - 1] > 0 ? dp[i - 1] : 0 + nums[i];
-            result = result > dp[i] ? result : dp[i];
+            dp[i] = (dp[i - 1] > 0 ? dp[i - 1] : 0) + nums[i];
+            result = (result > dp[i]) ? result : dp[i];
         }
 
         return result;
