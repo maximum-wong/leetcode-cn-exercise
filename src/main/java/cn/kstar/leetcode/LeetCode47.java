@@ -1,29 +1,28 @@
 package cn.kstar.leetcode;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
- * <h6>全排列
- * <br/>Permutations</h6>
+ * <h6>全排列 II
+ * <br/>Permutations II</h6>
  *
- * <p>给定一个<b>没有重复</b>数字的序列，返回其所有可能的全排列。
- * <br/>Given a collection of <b>distinct</b> integers, return all possible permutations.</p>
+ * <p>给定一个可包含重复数字的序列，返回所有不重复的全排列。
+ * <br/>Given a collection of numbers that might contain duplicates, 
+ * return all possible unique permutations./p>
  * <p><b>Examples:</b></p>
  * <pre>
- * <b>Input:</b> [1,2,3]
+ * <b>Input:</b> [1,1,2]
  * <b>Output:</b>
  * [
- *   [1,2,3],
- *   [1,3,2],
- *   [2,1,3],
- *   [2,3,1],
- *   [3,1,2],
- *   [3,2,1]
+ *   [1,1,2],
+ *   [1,2,1],
+ *   [2,1,1]
  * ]
  * </pre>
  */
-public class LeetCode46 {
+public class LeetCode47 {
 
     /**
      * <h6>回溯搜索算法</h6>
@@ -31,21 +30,22 @@ public class LeetCode46 {
      * @param nums
      * @return List<List<Integer>>
      */
-    public List<List<Integer>> permute(int[] nums) {
+    public List<List<Integer>> permuteUnique(int[] nums) {
         List<List<Integer>> result = new ArrayList<>();
 
         if ((nums == null) || (nums.length == 0)) {
             return result;
         }
 
+        // 排序操作，便于剪枝
+        Arrays.sort(nums);
         int length = nums.length;
         // 记录某个位置的数字是否被使用
         boolean[] used = new boolean[length];
-        // 如果数字少于64个可以优化使用status
         // 记录一个返回结果的集合
         List<Integer> path = new ArrayList<>();
-
         dfs(nums, length, 0, path, used, result);
+
         return result;
     }
 
@@ -54,7 +54,7 @@ public class LeetCode46 {
      * 
      * @param nums
      * @param length
-     * @param depth 递归深度
+     * @param depth  递归深度
      * @param path
      * @param used
      * @param result
@@ -67,16 +67,18 @@ public class LeetCode46 {
         }
 
         for (int i = 0; i < length; i++) {
-            if (!used[i]) {
-                path.add(nums[i]);
-                used[i] = true;
-                // 向下一层递归操作
-                dfs(nums, length, depth + 1, path, used, result);
-                // 重置状态
-                used[i] = false;
-                path.remove(depth);
+            if (used[i]) {
+                continue;
             }
+            // 去重操作
+            if ((i > 0) && (nums[i - 1] == nums[i]) && (!used[i - 1])) {
+                continue;
+            }
+            path.add(nums[i]);
+            used[i] = true;
+            dfs(nums, length, depth + 1, path, used, result);
+            used[i] = false;
+            path.remove(depth);
         }
     }
-
 }
