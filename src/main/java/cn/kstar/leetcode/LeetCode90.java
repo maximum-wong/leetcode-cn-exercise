@@ -6,6 +6,29 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * <h6>子集 II
+ * <br/>Subsets II</h6>
+ *
+ * <p>给定一个可能包含重复元素的整数数组 <em><b>nums</b></em>，返回该数组所有可能的子集（幂集）。
+ * <br/>Given a collection of integers that might contain duplicates, <em><b>nums</em></b>, 
+ * return all possible subsets (the power set).</p>
+ * <p><b>说明：</b>解集不能包含重复的子集。
+ * <br/><b>Note: </b>The solution set must not contain duplicate subsets.</p>
+ * <p><b>Example:</b></p>
+ * <pre>
+ * <b>Input: </b>nums = [1,2,2]
+ * <b>Output: </b>
+ * [
+ *   [2],
+ *   [1],
+ *   [1,2,2],
+ *   [2,2],
+ *   [1,2],
+ *   []
+ * ]
+ * </pre>
+ */
 public class LeetCode90 {
 
     public List<List<Integer>> subsetsWithDup(int[] nums) {
