@@ -1,10 +1,45 @@
 package cn.kstar.leetcode;
 
+/**
+ * <h6>解码方法</h6>
+ *
+ * <p>一条包含字母 <code>A-Z</code> 的消息通过以下方式进行了编码：
+ * <br/>A message containing letters from <code>A-Z</code> is 
+ * being encoded to numbers using the following mapping:</p>
+ * <pre>
+ * 'A' -> 1
+ * 'B' -> 2
+ * ...
+ * 'Z' -> 26
+ * </pre>
+ * <p>给定一个只包含数字的<b>非空</b>字符串，请计算解码方法的总数。
+ * <br/>Given a <b>non-empty</b> string containing only digits, 
+ * determine the total number of ways to decode it.</p>
+ * <p><b>Example 1: </b></p>
+ * <pre>
+ * <b>Input: </b>"12"
+ * <b>Output: </b>2
+ * <b>Explanation: </b>它可以解码为 "AB"（1 2）或者 "L"（12）。
+ * It could be decoded as "AB" (1 2) or "L" (12).
+ * </pre>
+ * <p><b>Example 2: </b></p>
+ * <pre>
+ * <b>Input: </b>"226"
+ * <b>Output: </b>3
+ * <b>Explanation: </b>它可以解码为 "BZ" (2 26), "VF" (22 6), 或者 "BBF" (2 2 6) 。
+ * It could be decoded as "BZ" (2 26), "VF" (22 6), or "BBF" (2 2 6).
+ * </pre>
+ */
 public class LeetCode91 {
 
     /**
      * <h6>动态规划法</h6>
-     * 
+     *
+     * <p>由问题的得，动态方程为以下三种情况：</p>
+     * <ol><li>当第i位为0且第i-1位为0，dp[i]=0</li>
+     * <li>当第i位与第i-1位能构成合法数字且第i位不为合法数字，dp[i]=dp[i-2]</li>
+     * <li>当第i位与第i-1位能构成合法数字且第i位为合法数字，dp[i]=dp[i-1]+dp[i-2]</li>
+     * <li>当第i位与第i-1位不能构成合法数字且第i位为合法数字，dp[i]=dp[i-1]</li></ol>
      * @param  s
      * @return int
      */
