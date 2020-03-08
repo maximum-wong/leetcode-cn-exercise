@@ -1,7 +1,8 @@
 package cn.kstar.leetcode;
 
 /**
- * <h6>解码方法</h6>
+ * <h6>解码方法
+ * <br/>Decode Ways</h6>
  *
  * <p>一条包含字母 <code>A-Z</code> 的消息通过以下方式进行了编码：
  * <br/>A message containing letters from <code>A-Z</code> is 
