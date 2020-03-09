@@ -122,7 +122,7 @@ public class LeetCode226 {
         stack.push(root);
 
         while (!stack.isEmpty()) {
-            // 获取栈底元素
+            // 获取栈中最后一个元素
             TreeNode currentNode = stack.lastElement();
             // 弹出栈顶元素
             stack.pop();
