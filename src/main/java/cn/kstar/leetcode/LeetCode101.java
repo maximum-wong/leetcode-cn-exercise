@@ -66,7 +66,7 @@ public class LeetCode101 {
      * @param root
      * @return
      */
-    public boolean isSymmetric3(TreeNode root) {
+    public boolean isSymmetric2(TreeNode root) {
         if (root == null) {
             return true;
         }
