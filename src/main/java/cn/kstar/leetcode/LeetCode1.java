@@ -130,7 +130,7 @@ public class LeetCode1 {
                 right--;
             }
         }
-
         return ret;
     }
+
 }
