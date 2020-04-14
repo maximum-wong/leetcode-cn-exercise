@@ -29,7 +29,7 @@ import cn.kstar.leetcode.data_structure.TreeNode;
  * <br/>Return <code>true</code>.<br><br>
  * <strong>示例 2:</strong></p>
  * <p>给定二叉树 <code>[1,2,2,3,3,null,null,4,4]</code></p>
- * <pre>       
+ * <pre>
  *       1
  *      / \
  *     2   2
