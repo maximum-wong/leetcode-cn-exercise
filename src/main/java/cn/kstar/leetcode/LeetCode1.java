@@ -66,7 +66,7 @@ public class LeetCode1 {
         }
         for (int i = 0; i < length; i++) {
             int complement = target - nums[i];
-            if (map.containsKey(complement)) {
+            if (map.containsKey(complement) && map.get(complement) != i) {
                 ret[0] = i;
                 ret[1] = map.get(complement);
                 return ret;
