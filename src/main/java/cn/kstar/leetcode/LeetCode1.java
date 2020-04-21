@@ -1,6 +1,5 @@
 package cn.kstar.leetcode;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -70,40 +69,6 @@ public class LeetCode1 {
                 ret[0] = i;
                 ret[1] = map.get(complement);
                 return ret;
-            }
-        }
-        return ret;
-    }
-
-    /**
-     * <h6>排序+双指针法</h6>
-     *
-     * <p>时间复杂度：O(nlgn + n)；空间复杂度：O(1)</p>
-     * @param nums
-     * @param target
-     * @return
-     */
-    public int[] twoSum3(int[] nums, int target) {
-        if (nums == null || nums.length == 0) {
-            return nums;
-        }
-
-        // 对数组进行排序
-        Arrays.sort(nums);
-
-        // 使用双指针法
-        int[] ret = new int[2];
-        int left = 0;
-        int right = nums.length - 1;
-        while (left < right) {
-            if (nums[left] + nums[right] == target) {
-                ret[0] = nums[left];
-                ret[1] = nums[right];
-                return ret;
-            } else if (nums[left] + nums[right] < target) {
-                left++;
-            } else {
-                right--;
             }
         }
         return ret;
