@@ -1,5 +1,8 @@
 package cn.kstar.leetcode;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * <h3>字符串转换整数</h3>
  * 
@@ -27,7 +30,7 @@ package cn.kstar.leetcode;
  */
 public class LeetCode8 {
 
-    public int atoi(String str) {
+    public int myAtoi(String str) {
         char[] charArray = str.toCharArray();
         int length = charArray.length;
         int index = 0;
@@ -62,5 +65,76 @@ public class LeetCode8 {
             }
         }
         return (int) (sign * sum);
+    }
+    
+    /**
+     * <h6>DFA法</h6>
+     * <table border="1px">
+     * <tr><td></td><td>''</td><td>+/-</td><td>NUMBER</td><td>OTHER</td></tr>
+     * <tr><td>START</td><td>START</td><td>SIGNED</td><td>NUMBER</td><td>END</td></tr>
+     * <tr><td>SIGNED</td><td>END</td><td>END</td><td>NUMBER</td><td>END</td></tr>
+     * <tr><td>NUMBER</td><td>END</td><td>END</td><td>NUMBER</td><td>END</td></tr>
+     * <tr><td>END</td><td>END</td><td>END</td><td>END</td><td>END</td></tr>
+     * </table>
+     */
+    private class Automation {
+
+        private static final String START = "start";
+        private static final String SIGNED = "signed";
+        private static final String NUMBER = "number";
+        private static final String END = "end";
+
+        private String status = START;
+        private int sign = 1;
+        private long ans = 0;
+        private Map<String, String[]> map;
+
+        public Automation() {
+            map = new HashMap<>();
+            map.put(START, new String[] { START, SIGNED, NUMBER, END });
+            map.put(SIGNED, new String[] { END, END, NUMBER, END });
+            map.put(NUMBER, new String[] { END, END, NUMBER, END });
+            map.put(END, new String[] { END, END, END, END });
+        }
+
+        public int getCol(char c) {
+            if (c == ' ') {
+                return 0;
+            }
+            if (c == '+' || c == '-') {
+                return 1;
+            }
+            if (c >= '0' && c <= '9') {
+                return 2;
+            }
+            return 3;
+        }
+
+        public void get(char c) {
+            status = map.get(status)[getCol(c)];
+            if (NUMBER.equals(status)) {
+                ans = ans * 10 + c - '0';
+                if (sign == 1) {
+                    ans = ans < 0X7FFFFFFF ? ans : 0X7FFFFFFF;
+                } else {
+                    ans = ans < -1 * ((long) 0X80000000) ? ans : -1*(long)0X80000000;
+                }
+            } else if (SIGNED.equals(status)) {
+                sign = (c == '+') ? 1 : -1;
+            }
+        }
+
+        public int getResult() {
+            return (int)(sign * ans);
+        }
+    }
+
+    public int myAtoi2(String str) {
+        Automation automation = new Automation();
+        char[] c = str.toCharArray();
+        for (char ch : c) {
+            automation.get(ch);
+        }
+        return automation.getResult();
     }
 }
