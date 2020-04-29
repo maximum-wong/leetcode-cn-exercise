@@ -77,6 +77,15 @@ public class LeetCode8 {
      * <tr><td>END</td><td>END</td><td>END</td><td>END</td><td>END</td></tr>
      * </table>
      */
+    public int myAtoi2(String str) {
+        Automation automation = new Automation();
+        char[] c = str.toCharArray();
+        for (char ch : c) {
+            automation.get(ch);
+        }
+        return automation.getResult();
+    }
+    
     private class Automation {
 
         private static final String START = "start";
@@ -97,7 +106,7 @@ public class LeetCode8 {
             map.put(END, new String[] { END, END, END, END });
         }
 
-        public int getCol(char c) {
+        private int getCol(char c) {
             if (c == ' ') {
                 return 0;
             }
@@ -128,13 +137,105 @@ public class LeetCode8 {
             return (int)(sign * ans);
         }
     }
+    
+    private enum DFA {
+        START,
+        SIGNED,
+        NUMBER,
+        END
+    }
+    
+    private static class Automation2 {
 
-    public int myAtoi2(String str) {
-        Automation automation = new Automation();
-        char[] c = str.toCharArray();
-        for (char ch : c) {
-            automation.get(ch);
+        // 自动机初始状态
+        private DFA state = DFA.START;
+
+        // 符号位
+        private char sign = '+';
+
+        // 记录结果
+        private int result = 0;
+
+        // 终止条件
+        private boolean flag = true;
+
+        // 状态流转表
+        private static Map<DFA, DFA[]> map;
+
+        static {
+            map = new HashMap<>(4);
+            map.put(DFA.START, new DFA[] { DFA.START, DFA.SIGNED, DFA.NUMBER, DFA.END });
+            map.put(DFA.SIGNED, new DFA[] { DFA.END, DFA.END, DFA.NUMBER, DFA.END });
+            map.put(DFA.NUMBER, new DFA[] { DFA.END, DFA.END, DFA.NUMBER, DFA.END });
+            map.put(DFA.END, new DFA[] { DFA.END, DFA.END, DFA.END, DFA.END });
         }
+
+        public int getResult() {
+            return result;
+        }
+
+        public boolean getFlag() {
+            return flag;
+        }
+
+        private int getIndex(char c) {
+            if (c == ' ') {
+                return 0;
+            }
+            if (c == '+' || c == '-') {
+                return 1;
+            }
+            if (c >= '0' && c <= '9') {
+                return 2;
+            }
+            return 3;
+        }
+
+        public void getInteger(char c) {
+            // 获取当前状态
+            state = map.get(state)[getIndex(c)];
+
+            switch (state) {
+            case NUMBER:
+                if ((sign == '+') && (result > 0X7FFFFFFF / 10 || (result == 0X7FFFFFFF / 10 && c - '0' > 7))) {
+                    result = 0X7FFFFFFF;
+                    flag = false;
+                    break;
+                } else if ((sign == '-') && (result < 0X80000000 / 10 || (result == 0X80000000 / 10 && c - '0' > 8))) {
+                    result = 0X80000000;
+                    flag = false;
+                    break;
+                }
+                result = (sign == '+') ? (result * 10 + c - '0') : (result * 10 - (c - '0'));
+                break;
+            case SIGNED:
+                sign = c;
+                break;
+            case END:
+                flag = false;
+                break;
+            default:
+                break;
+            }
+        }
+    }
+    
+    public int myAtoi3(String str) {
+        if (str==null || str.length()==0) {
+            return 0;
+        }
+        
+        Automation2 automation = new Automation2();
+        
+        for (int i = 0, len = str.length(); i < len; i++) {
+            if (automation.getFlag()) {
+                automation.getInteger(str.charAt(i));
+            } else {
+                break;
+            }
+        }
+        
         return automation.getResult();
     }
+    
 }
