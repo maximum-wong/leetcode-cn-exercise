@@ -53,7 +53,7 @@ public class LeetCode55 {
                 return true;
             }
         }
-        return true;
+        return false;
     }
 
 }
