@@ -28,7 +28,7 @@ public class Solution {
                     start = mid + 1;
                 }
             } else {
-                if (nums[0] < target && target <= nums[nums.length - 1]) {
+                if (nums[mid] < target && target <= nums[nums.length - 1]) {
                     start = mid + 1;
                 } else {
                     end = mid - 1;
