@@ -43,6 +43,7 @@ public class Solution {
                     columns[column][i] = true;
                     boxes[index][i] = true;
                     board[row][column] = (char) (i + '0');
+                    // 后续情况符合条件
                     if (backTrace(board, column == 8 ? row + 1 : row, column == 8 ? 0 : column + 1)) {
                         return true;
                     }
@@ -52,7 +53,6 @@ public class Solution {
                     boxes[index][i] = false;
                     board[row][column] = '.';
                 }
-
             }
         }
         return false;
