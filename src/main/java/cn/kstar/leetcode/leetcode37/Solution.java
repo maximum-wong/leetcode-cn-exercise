@@ -1,5 +1,10 @@
 package cn.kstar.leetcode.leetcode37;
 
+/**
+ * <h6>回溯法</h6>
+ * <p>时间复杂度：(9!)^9</p>
+ *
+ */
 public class Solution {
 
     // 存储当前行、列和宫的状态
