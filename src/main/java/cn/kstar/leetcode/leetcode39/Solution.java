@@ -1,47 +1,15 @@
-package cn.kstar.leetcode;
+package cn.kstar.leetcode.leetcode39;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 /**
- * <h6>组合总和
- * <br/>Combination Sum</h6>
+ * <h6>回溯搜索算法</h6>
  *
- * <p>给定一个<b>无重复元素</b>的数组 <code>candidates</code> 和一个目标数 <code>target</code> ，
- * 找出 <code>candidates</code> 中所有可以使数字和为 target 的组合。
- * <br/>Given a <b>set</b> of candidate numbers (<code>candidates</code>) <b>(without duplicates)</b> 
- * and a target number (<code>target</code>), find all unique combinations in <code>candidates</code> 
- * where the candidate numbers sums to <code>target</code>.</p>
- * <p><code>candidates</code> 中的数字可以无限制重复被选取。
- * <br/>The <b>same</b> repeated number may be chosen from <code>candidates</code> unlimited number of times.</p>
- * <p><b>说明：</b>
- * <br/><b>Note:</b></p>
- * <ul><li>所有数字（包括 <code>target</code>）都是正整数。
- * <br/>All numbers (including <code>target</code>) will be positive integers.</li>
- * <li>解集不能包含重复的组合。
- * <br/>The solution set must not contain duplicate combinations.</li></ul>
- * <p><b>Example 1:</b></p>
- * <pre>
- * <b>Input: </b>candidates = [2,3,6,7], target = 7,
- * <b>A solution set is: </b>
- * [
- *   [7],
- *   [2, 2, 3]
- * ]
- * </pre>
- * <p><b>Example 2:</b></p>
- * <pre>
- * <b>Input: </b>candidates = [2,3,5], target = 8,
- * <b>A solution set is: </b>
- * [
- *   [2,2,2,2],
- *   [2,3,3],
- *   [3,5]
- * ]
- * </pre>
  */
-public class LeetCode39 {
+public class Solution {
+
 
     /**
      * <h6>回溯搜索算法</h6>

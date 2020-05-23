@@ -4,7 +4,7 @@ public class Solution {
 
     /**
      * <h6>二分法</h6>
-     * <p>使用二分法，为了查找到数组中不存在的元素的位置，边界条件为left>left</p>
+     * <p>使用二分法，为了查找到数组中不存在的元素的位置，边界条件为left>right</p>
      *
      * @param nums
      * @param target
