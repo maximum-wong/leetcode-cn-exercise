@@ -1,4 +1,4 @@
-#### 39. 组合总和
+#### 39. 组合总和(Combination Sum)
 
 给定一个**无重复元素**的数组 `candidates` 和一个目标数 `target` ，找出 `candidates` 中所有可以使数字和为 `target` 的组合。<br/>
 Given a **set** of candidate numbers (`candidates`) (**without duplicates**) and a target number (`target`), find all unique combinations in candidates where the `candidate` numbers sums to `target`.
