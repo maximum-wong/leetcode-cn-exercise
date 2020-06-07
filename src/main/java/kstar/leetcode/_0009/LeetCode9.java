@@ -1,4 +1,4 @@
-package kstar.leetcode;
+package kstar.leetcode._0009;
 
 /**
  * <h3>Palindrome Number</h3>

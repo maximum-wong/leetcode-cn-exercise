@@ -1,4 +1,4 @@
-package kstar.leetcode;
+package kstar.leetcode._0006;
 
 /**
  * <h6>Z字型变换

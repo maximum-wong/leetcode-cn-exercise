@@ -1,4 +1,4 @@
-package kstar.leetcode;
+package kstar.leetcode._0007;
 
 /**
  * <h3>整数反转</h3>

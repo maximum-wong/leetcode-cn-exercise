@@ -1,4 +1,4 @@
-package kstar.leetcode;
+package kstar.leetcode._0008;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package kstar.leetcode;
+package kstar.leetcode._0005;
 
 /**
  * <h3>最长回文子串
