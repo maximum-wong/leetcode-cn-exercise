@@ -23,7 +23,7 @@ Here, we will use the integers 0, 1, and 2 to represent the color red, white, an
 首先，迭代计算出0、1 和 2 元素的个数，然后按照0、1、2的排序，重写当前数组。
 - 你能想出一个仅使用常数空间的一趟扫描算法吗？
 
-**Follow up: **
+**Follow up:**
 
 - A rather straight forward solution is a two-pass algorithm using counting sort.<br/>
 First, iterate the array counting number of 0's, 1's, and 2's, then overwrite array with total number of 0's, then 1's and followed by 2's.

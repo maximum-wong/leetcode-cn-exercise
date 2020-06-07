@@ -1,4 +1,4 @@
-package kstar.leetcode;
+package kstar.leetcode._0014;
 
 /**
  * <h6>最长公共前缀</h6>

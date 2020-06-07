@@ -1,4 +1,4 @@
-package kstar.leetcode;
+package kstar.leetcode._0015;
 
 import java.util.ArrayList;
 import java.util.Arrays;

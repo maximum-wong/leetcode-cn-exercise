@@ -1,4 +1,4 @@
-package kstar.leetcode;
+package kstar.leetcode._0011;
 
 /**
  * <h6>盛最多水的容器</h6>
