@@ -1,4 +1,4 @@
-#### 杨辉三角 II
+#### 杨辉三角 II(Pascal's Triangle II)
 
 给定一个非负索引 k，其中 k ≤ 33，返回杨辉三角的第 k 行。<br/>
 Given a non-negative index k where k ≤ 33, return the k<sup>th</sup> index row of the Pascal's triangle.
