@@ -105,7 +105,7 @@ public class LeetCode9 {
      */
     public boolean isPalindrome4(int x) {
         // 排除负数和个位数上为0的非0数字
-        if ((x < 0) || (x % 10 == 0)) {
+        if ((x < 0) || (x!=0 && x % 10 == 0)) {
             return false;
         }
 

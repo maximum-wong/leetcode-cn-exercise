@@ -1,4 +1,4 @@
-package kstar.leetcode;
+package kstar.leetcode._0118;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,7 +50,7 @@ public class LeetCode118 {
         for (int i = 0; i < numRows; i++) {
             row.add(0, 1);
             // 按照规律处理这一层元素
-            for (int j = 1, len = row.size() - 1; j < len; j++) {
+            for (int j = 1, position = row.size() - 1; j < position; j++) {
                 row.set(j, row.get(j) + row.get(j + 1));
             }
             // 复制这一层的元素
@@ -59,9 +59,4 @@ public class LeetCode118 {
         return allRows;
     }
 
-    public static void main(String[] args) {
-        LeetCode118 lc = new LeetCode118();
-        List<List<Integer>> generate = lc.generate(6);
-        System.out.println(generate.toString());
-    }
 }
