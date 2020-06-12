@@ -19,19 +19,17 @@ public class LeetCode14 {
      * @return String
      */
     public String longestCommonPrefix(String[] strs) {
-        int index = 0;
-        if (strs.length == 0) {
+        if ((strs == null) || (strs.length == 0)) {
             return "";
         }
         for (int i = 0, length = strs[0].length(); i < length; i++) {
-            char currentChar = strs[0].charAt(index);
-            for (int j = 0, len = strs.length; j < len; j++) { // 比较每个字符串相应位置上的值
-                if ((strs[i].length() == i) || (currentChar != strs[i].charAt(index))) {
-                    return strs[i].substring(0, index);
+            char currentChar = strs[0].charAt(i);
+            for (int j = 1, len = strs.length; j < len; j++) { // 比较每个字符串相应位置上的值
+                if ((strs[j].length() == i) || (currentChar != strs[j].charAt(i))) {
+                    return strs[0].substring(0, i);
                 }
             }
-            index++;
         }
-        return strs[0].substring(0, index);
+        return strs[0];
     }
 }
