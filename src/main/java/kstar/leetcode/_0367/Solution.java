@@ -2,7 +2,11 @@ package kstar.leetcode._0367;
 
 /**
  * <h6>奇数累加法</h6>
- *
+ * <p>1=1<br/>
+ * 4=1+3<br/>
+ * 9=1+3+5<br/>
+ * 16=1+3+5+7</p>
+ * 
  */
 public class Solution {
 
