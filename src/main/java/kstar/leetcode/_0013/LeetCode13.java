@@ -36,7 +36,7 @@ import java.util.Map;
  */
 public class LeetCode13 {
 
-    public int romanNumeralConverToArabicNumerals(String input) {
+    public int romanNumeralConverToArabicNumerals(String s) {
         int ret = 0;
         Map<Character, Integer> map = new HashMap<>();
         map.put('I', 1);
@@ -46,10 +46,10 @@ public class LeetCode13 {
         map.put('C', 100);
         map.put('D', 500);
         map.put('M', 1000);
-        for (int i = 0, length = input.length(); i < length; i++) {
-            char ch = input.charAt(i);
+        for (int i = 0, length = s.length(); i < length; i++) {
+            char ch = s.charAt(i);
             Integer value = map.get(ch);
-            if ((i == length - 1) || map.get(input.charAt(i + 1)) <= map.get(ch)) {// 大的数字在小的数字左边
+            if ((i == length - 1) || map.get(s.charAt(i + 1)) <= map.get(ch)) {// 大的数字在小的数字左边
                 ret += value;
             } else { // 小的数字在大的数字左边
                 ret -= value;
