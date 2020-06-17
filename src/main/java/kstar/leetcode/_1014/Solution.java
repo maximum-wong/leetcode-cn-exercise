@@ -12,6 +12,7 @@ public class Solution {
         if (A == null) {
             return 0;
         }
+
         if (A.length < 2) {
             return A[0];
         }
