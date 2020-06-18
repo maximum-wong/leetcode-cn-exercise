@@ -20,7 +20,7 @@ public class Solution extends VersionControl {
         int left = 1;
         int right = n;
         while (left < right) {
-            int mid = left + (right - left) >> 1;
+            int mid = left + ((right - left) >> 1);
             // 是坏的版本，坏的一定在mid及mid左边
             if (isBadVersion(mid)) {
                 right = mid;
