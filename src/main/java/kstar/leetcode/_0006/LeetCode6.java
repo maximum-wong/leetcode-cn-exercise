@@ -120,23 +120,23 @@ public class LeetCode6 {
      * <br/>中间的行规律：如果是在Z字的上半部分，index = current + step;
      * <br/>如果是在Z字的下半部分，index = current + step - 2 * row;</p>
      *  
-     * @param input
+     * @param s
      * @param numRows
      * @return String
      */
-    public String convert3(String input, int numRows) {
+    public String convert3(String s, int numRows) {
         // 空字符、numRows为1、numRows长度大于字符串长度的直接返回输入的字符
-        if ((input == null) || (input.length() == 0) || (numRows == 1) || (numRows > input.length()))
-            return input;
+        if ((s == null) || (s.length() == 0) || (numRows == 1) || (numRows > s.length()))
+            return s;
 
-        int length = input.length();
+        int length = s.length();
         // 每列之间的差值
         int step = 2 * numRows - 2;
         CharSequence cs = new CharSequence(length);
 
         // 处理第一行
         for (int i = 0; i < length; i += step) {
-            cs.append(input.charAt(i));
+            cs.append(s.charAt(i));
         }
         // 处理中间行
         int row = 1;
@@ -144,11 +144,11 @@ public class LeetCode6 {
             int current = row;
             while (current < length) {
                 // 处理上半部分
-                cs.append(input.charAt(current));
+                cs.append(s.charAt(current));
                 // 处理下半部分
                 int cNext = current + step - 2 * row;
                 if (cNext < length) {
-                    cs.append(input.charAt(cNext));
+                    cs.append(s.charAt(cNext));
                 }
                 current += step;
             }
@@ -157,7 +157,7 @@ public class LeetCode6 {
 
         // 处理最后一行
         while (row < length) {
-            cs.append(input.charAt(row));
+            cs.append(s.charAt(row));
             row += step;
         }
         return cs.toString();

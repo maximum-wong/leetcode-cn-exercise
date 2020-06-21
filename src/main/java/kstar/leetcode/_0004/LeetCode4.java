@@ -80,13 +80,13 @@ public class LeetCode4 {
      * @param b
      * @return
      */
-    public double findMedianSortedArrays(int[] A, int[] B) {
-        int m = A.length;
-        int n = B.length;
+    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        int m = nums1.length;
+        int n = nums2.length;
         if (m > n) { // 交换m, n，保证n ≥ m
-            int[] temp = A;
-            A = B;
-            B = temp;
+            int[] temp = nums1;
+            nums1 = nums2;
+            nums2 = temp;
             int tep = m;
             m = n;
             n = tep;
@@ -95,18 +95,18 @@ public class LeetCode4 {
         while (iMin <= iMax) {
             int i = (iMin + iMax) / 2;
             int j = halfLen - i;
-            if (i < iMax && B[j - 1] > A[i]) {
+            if (i < iMax && nums2[j - 1] > nums1[i]) {
                 iMin = iMin + 1; // i 太小
-            } else if (i > iMin && A[i - 1] > B[j]) {
+            } else if (i > iMin && nums1[i - 1] > nums2[j]) {
                 iMax = iMax - 1; // i 太大
             } else { // 命中目标，分为基数和偶数情况
                 int maxLeft = 0;
                 if (i == 0) {
-                    maxLeft = B[j - 1];
+                    maxLeft = nums2[j - 1];
                 } else if (j == 0) {
-                    maxLeft = A[i - 1];
+                    maxLeft = nums1[i - 1];
                 } else {
-                    maxLeft = Math.max(A[i - 1], B[j - 1]);
+                    maxLeft = Math.max(nums1[i - 1], nums2[j - 1]);
                 }
                 if ((m + n) % 2 == 1) {
                     return maxLeft;
@@ -114,11 +114,11 @@ public class LeetCode4 {
 
                 int minRight = 0;
                 if (i == m) {
-                    minRight = B[j];
+                    minRight = nums2[j];
                 } else if (j == n) {
-                    minRight = A[i];
+                    minRight = nums1[i];
                 } else {
-                    minRight = Math.min(B[j], A[i]);
+                    minRight = Math.min(nums2[j], nums1[i]);
                 }
 
                 return (maxLeft + minRight) / 2.0;
