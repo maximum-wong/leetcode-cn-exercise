@@ -42,7 +42,7 @@ public class Solution {
             ListNode node = new ListNode(sum % 10);
             node.next = head;
             head = node;
-            carry /= 10;
+            carry = sum/10;
 
         }
 
