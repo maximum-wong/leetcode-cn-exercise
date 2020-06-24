@@ -23,20 +23,20 @@ public class LeetCode26 {
      * 
      * <p>使用双指针法，左指针和右指针指向相同的元素就跳过。
      * <br/>不需要关心遍历完之后由于删除重复元素带来的length变化，因为左指针的位置就是数组长度。</p>
-     * @param  array
+     * @param  nums
      * @return int
      */
-    public int removeDuplicates(int[] array) {
-        if (array == null || array.length == 0) {
+    public int removeDuplicates(int[] nums) {
+        if (nums == null || nums.length == 0) {
             return 0;
         }
         // 左指针
         int index = 0;
-        for (int i = 0, length = array.length; i < length; i++) {
+        for (int i = 0, length = nums.length; i < length; i++) {
             // 如果右指针与左指针所指的元素不相同
-            if (array[index] != array[i]) {
+            if (nums[index] != nums[i]) {
                 index++;
-                array[index] = array[i];
+                nums[index] = nums[i];
             }
         }
         index += 1;
