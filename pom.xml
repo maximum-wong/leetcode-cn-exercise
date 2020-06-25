@@ -4,12 +4,12 @@
         http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>kstar.leetcode</groupId>
-  <artifactId>leetcode-exercise</artifactId>
+  <groupId>kstar.leetcode_cn</groupId>
+  <artifactId>leetcode-cn-exercise</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
   
-  <name>leetcode-exercise</name>
+  <name>leetcode-cn-exercise</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
