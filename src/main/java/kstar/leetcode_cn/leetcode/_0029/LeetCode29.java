@@ -31,39 +31,31 @@ public class LeetCode29 {
      * @return int
      */
     public int divide(int dividend, int divisor) {
-        // 溢出处理
-        if ((divisor == 0) || (dividend == 0X80000000 && divisor == -1)) {
-            return 0X7FFFFFFF;
-        }
-
-        // 求返回结果的符号
-        int sign = (dividend < 0) ^ (divisor < 0) ? -1 : 1;
-        // 求绝对值，为防止溢出使用long
-        long dvd = fastAbs((long) dividend);
-        long dvs = fastAbs((long) divisor);
-        // 记录结果
+        // 符号位判定，sign为true代表结果为负，反之为正
+        boolean sign = (dividend > 0) ^ (divisor > 0);
+        // 将被除数与除数均转化为非正数，方便边界情况的处理
+        if (dividend > 0) dividend = -dividend;
+        if (divisor > 0) divisor = -divisor;
+        // 申请结果变量
         int result = 0;
 
-        // 被除数大于除数
-        while (dvd >= dvs) {
-            // 记录除数
-            long temp = dvs;
-            // 记录商的大小
-            long mul = 1;
-            while (dvd >= (temp << 1)) {
-                temp <<= 1;
-                mul <<= 1;
+        // 循环求解，注意此时 dividend <= 0, divisor < 0
+        while (dividend <= divisor) {
+            int tmp = -1;
+            int flag = divisor;
+            if (flag > (Integer.MIN_VALUE >> 1)) {
+                while (dividend <= (flag << 1)) {
+                    if (flag <= (Integer.MIN_VALUE >> 1)) break;
+                    tmp <<= 1;
+                    flag <<= 1;
+                }
             }
-            // 减去最接近dvd的dvs的指数倍的值（值为temp）
-            dvd -= temp;
-            // 修正结果
-            result += mul;
+            dividend -= flag;
+            result += tmp;
         }
-        return result * sign;
+
+        // 结合符号位判断是否溢出
+        return sign ? result : (result == Integer.MIN_VALUE ? Integer.MAX_VALUE : -result);
     }
 
-    private long fastAbs(long value) {
-        long temp = value >> 63;
-        return value ^ temp - temp;
-    }
 }
