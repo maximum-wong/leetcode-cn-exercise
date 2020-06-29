@@ -1,4 +1,4 @@
-package kstar.leetcode_cn.leetcode._215;
+package kstar.leetcode_cn.leetcode._0215;
 
 import java.util.Random;
 
