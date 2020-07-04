@@ -29,8 +29,8 @@ SELECT id,
     [Sep] AS [Sep_Revenue],
     [Oct] AS [Oct_Revenue],
     [Nov] AS [Nov_Revenue],
-    [Dec] AS [Dec_Revenue] 
+    [Dec] AS [Dec_Revenue]
 FROM Department PIVOT
-(SUM(revenue) FOR month 
+(SUM(revenue) FOR month
     IN([Jan],[Feb],[Mar],[Apr],[May],[Jun],[Jul],[Aug],[Sep],[Oct],[Nov],[Dec]))
  AS T;
