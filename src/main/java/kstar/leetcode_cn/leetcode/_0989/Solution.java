@@ -14,9 +14,11 @@ public class Solution {
         LinkedList<Integer> res = new LinkedList<>();
         int carry = 0;
         int num = 0;
+        int tmp = 0;
         int idx = A.length - 1;
-        while (idx >= 0 || K > 0) {
-            num = K % 10 + A[idx] + carry;
+        while (idx >= 0 || K > 0 || carry > 0) {
+            tmp = idx >= 0 ? A[idx] : 0;
+            num = K % 10 + tmp + carry;
             res.addFirst(num % 10);
             carry = num / 10;
             idx--;
