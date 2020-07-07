@@ -1,26 +1,10 @@
 package kstar.leetcode_cn.leetcode._0242;
 
 /**
- * <h6>有效的字母异位词</h6>
- *
- * <p>给定两个字符串 s 和 t ，编写一个函数来判断 t 是否是 s 的字母异位词。
- * <br/>你可以假设字符串只包含小写字母。</p>
- * <pre><b>Examples: </b>
- * Input: s = "anagram", t = "nagaram"; Output: true
- *
- * Input: s = "rat", t = "car"; Output: false
- * </pre>
- *
+ * <h6>查表法</h6>
  */
-public class LeetCode242 {
+public class Solution {
 
-    /**
-     * <h6>查表法</h6>
-     * 
-     * @param  s
-     * @param  t
-     * @return boolean
-     */
     public boolean isAnagram(String s, String t) {
         // 两个字符长度不相等，直接返回false
         if (s.length() != t.length()) {
