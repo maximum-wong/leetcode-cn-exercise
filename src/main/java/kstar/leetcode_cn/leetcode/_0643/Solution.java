@@ -7,19 +7,22 @@ public class Solution {
 
     public double findMaxAverage(int[] nums, int k) {
 
-        double sum = 0;
+        double slidingWindow = 0;
 
         // 初始化一个窗口的和
         for (int i = 0; i < k; i++) {
-            sum += nums[i];
+            slidingWindow += nums[i];
         }
+
+        double maxValue = slidingWindow;
 
         // 寻找窗口最大的和
         for (int i = k; i < nums.length; i++) {
-            sum = Math.max(sum, sum - nums[i - k] + nums[i]);
+            slidingWindow = slidingWindow - nums[i - k] + nums[i];
+            maxValue = Math.max(maxValue, slidingWindow);
         }
 
         // 求最大平均值
-        return sum / k;
+        return maxValue / k;
     }
 }
