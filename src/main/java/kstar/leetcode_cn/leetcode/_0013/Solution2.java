@@ -1,8 +1,5 @@
 package kstar.leetcode_cn.leetcode._0013;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * <h6>函数法</h6>
  */
